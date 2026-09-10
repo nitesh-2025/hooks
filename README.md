@@ -7,7 +7,9 @@ Backup of Claude Code global instructions, memory and hooks for **Mr. Nitesh β*
 | [`CLAUDE.md`](CLAUDE.md) | Global instructions (identity, role, skills, project aliases) |
 | [`skills/projects/SKILL.md`](skills/projects/SKILL.md) | Project aliases skill — paths, stack, branch, npm scripts |
 | [`projects/.../memory/`](projects/C--Users-Katyayani-Organics-Desktop-All/memory) | Persistent memory files (`MEMORY.md` index + one file per fact) |
+| [`skills/nitesh-bug-fix/SKILL.md`](skills/nitesh-bug-fix/SKILL.md) | Standard bug-fix workflow (root cause → smallest fix → build/tests → diff review → report) |
 | [`hooks/memory-backup.sh`](hooks/memory-backup.sh) | Stop hook that auto-commits and pushes changes here |
+| [`hooks/bug-fix-reminder.js`](hooks/bug-fix-reminder.js) | UserPromptSubmit hook — on bug/error prompts, reminds Claude to use `nitesh-bug-fix` |
 
 Note: the `projects/` folder is Claude Code's memory store (named after the workspace path) — it does **not** contain project source code. The code lives in each repo under the Katyayani-Organics org.
 
