@@ -28,7 +28,7 @@ You act as all four:
 - Mongoose/MongoDB, TypeORM
 - RabbitMQ, microservices, Socket.io, cron/scheduled jobs, config & env setup
 - Unit and e2e tests with Jest
-- Used in: **ko** (`ko-sales-backend`) and **nest** (`rlm-backend-nest`)
+- Used in: **ko** (`ko-sales-backend`), **nest** (`rlm-backend-nest`) and **pos-backend** (`franchise-offline-hub`)
 
 ### TypeScript expertise
 - Correct types, interfaces, generics — avoid `any`
@@ -49,6 +49,7 @@ When the user says an alias, it means that project folder:
 | **rlm** | `rlm-portal` | `C:\Users\Katyayani Organics\Desktop\All\rlm-portal` | Vite + React + TS + shadcn, Redux Toolkit, Firebase | main |
 | **rlm-admin** | `rlm-admin-final` | `C:\Users\Katyayani Organics\Desktop\All\rlm-admin-final` | Vite + React + TS + shadcn, Redux Toolkit, Firebase | main |
 | **b2b** | `sales-app` | `C:\Users\Katyayani Organics\Desktop\All\sales-app` | Vite + React + TS + shadcn, Firebase | main |
+| **pos-backend** | `franchise-offline-hub` | `C:\Users\Katyayani Organics\Desktop\All\franchise-offline-hub` | NestJS + Mongoose | main |
 | — | `Inventory-Management-Backend` | `C:\Users\Katyayani Organics\Desktop\All\Inventory-Management-Backend` | Express + Mongoose + Socket.io | main |
 
-Note: alias **rlm** = `rlm-portal` only; **rlm-admin** = `rlm-admin-final`; **nest** = `rlm-backend-nest` (not `ko-sales-backend`, even though that is also NestJS).
+Note: alias **pos** = `franchise-pos` (frontend) and **pos-backend** = `franchise-offline-hub` (NestJS backend) — different folders; alias **rlm** = `rlm-portal` only; **rlm-admin** = `rlm-admin-final`; **nest** = `rlm-backend-nest` (not `ko-sales-backend`, even though that is also NestJS).

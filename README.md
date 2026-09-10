@@ -27,6 +27,7 @@ Note: the `projects/` folder is Claude Code's memory store (named after the work
 | rlm | `rlm-portal` |
 | rlm-admin | `rlm-admin-final` |
 | b2b | `sales-app` |
+| pos-backend | `franchise-offline-hub` |
 
 Lives at `~/.claude` on the machine. Session transcripts, settings and credentials are excluded by `.gitignore`.
 

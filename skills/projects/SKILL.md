@@ -1,6 +1,6 @@
 ---
 name: projects
-description: Katyayani Organics project aliases and how to work in each one. Use whenever the user names a project by alias — pos, ko, nest, rlm, rlm-admin, b2b — or asks to run, build, test, lint, fix, or check git in one of these projects.
+description: Katyayani Organics project aliases and how to work in each one. Use whenever the user names a project by alias — pos, pos-backend, ko, nest, rlm, rlm-admin, b2b — or asks to run, build, test, lint, fix, or check git in one of these projects.
 ---
 
 # Project aliases
@@ -13,10 +13,12 @@ description: Katyayani Organics project aliases and how to work in each one. Use
 | **rlm** | `rlm-portal` | `C:\Users\Katyayani Organics\Desktop\All\rlm-portal` | Vite + React + TS + shadcn, Redux Toolkit, Firebase | main |
 | **rlm-admin** | `rlm-admin-final` | `C:\Users\Katyayani Organics\Desktop\All\rlm-admin-final` | Vite + React + TS + shadcn, Redux Toolkit, Firebase | main |
 | **b2b** | `sales-app` | `C:\Users\Katyayani Organics\Desktop\All\sales-app` | Vite + React + TS + shadcn, Firebase | main |
+| **pos-backend** | `franchise-offline-hub` | `C:\Users\Katyayani Organics\Desktop\All\franchise-offline-hub` | NestJS + Mongoose | main |
 
 No alias: `Inventory-Management-Backend` (Express + Mongoose + Socket.io).
 
 Don't mix these up:
+- **pos** = `franchise-pos` (frontend). **pos-backend** = `franchise-offline-hub` (NestJS backend).
 - **nest** = `rlm-backend-nest`. `ko-sales-backend` is also NestJS but its alias is **ko**.
 - **rlm** = `rlm-portal` only. **rlm-admin** = `rlm-admin-final`.
 
@@ -32,6 +34,7 @@ All repos live in the GitHub org **Katyayani-Organics**.
 | rlm | dev, build, build:dev, lint, preview |
 | rlm-admin | dev, build, build:dev, lint, preview, test:partner, typecheck:partner-api |
 | b2b | dev, build, build:dev, lint, preview |
+| pos-backend | build, format, start, dev, start:debug, start:prod, lint (no test script) |
 
 Scripts can change — re-check `package.json` before relying on one.
 

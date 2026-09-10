@@ -7,7 +7,7 @@ Is project ke test files dhoondo aur run karo.
 
 Agar `$ARGUMENTS` diya gaya hai, to sirf usi file/folder ke tests run karo. Warna poore project ke tests dhoondo aur run karo.
 
-Agar `$ARGUMENTS` project alias hai (pos, ko, nest, rlm, rlm-admin, b2b), to us project ke folder me tests run karo (paths `projects` skill me hain).
+Agar `$ARGUMENTS` project alias hai (pos, pos-backend, ko, nest, rlm, rlm-admin, b2b), to us project ke folder me tests run karo (paths `projects` skill me hain).
 
 Steps:
 1. Project me test framework identify karo (jest, pytest, mocha, etc.)
