@@ -8,8 +8,9 @@ Backup of Claude Code global instructions, memory and hooks for **Mr. Nitesh β*
 | [`skills/projects/SKILL.md`](skills/projects/SKILL.md) | Project aliases skill — paths, stack, branch, npm scripts |
 | [`projects/.../memory/`](projects/C--Users-Katyayani-Organics-Desktop-All/memory) | Persistent memory files (`MEMORY.md` index + one file per fact) |
 | [`skills/nitesh-bug-fix/SKILL.md`](skills/nitesh-bug-fix/SKILL.md) | Standard bug-fix workflow (root cause → smallest fix → build/tests → diff review → report) |
+| [`skills/nitesh-tester/SKILL.md`](skills/nitesh-tester/SKILL.md) | Professional QA & regression testing (expected vs actual → full flow → edge cases → PASS / FAIL / BLOCKED report) |
 | [`hooks/memory-backup.sh`](hooks/memory-backup.sh) | Stop hook that auto-commits and pushes changes here |
-| [`hooks/bug-fix-reminder.js`](hooks/bug-fix-reminder.js) | UserPromptSubmit hook — on bug/error prompts, reminds Claude to use `nitesh-bug-fix` |
+| [`hooks/skill-reminders.js`](hooks/skill-reminders.js) | UserPromptSubmit hook — bug/error prompts → `nitesh-bug-fix`, test/QA/regression prompts → `nitesh-tester` |
 
 Note: the `projects/` folder is Claude Code's memory store (named after the workspace path) — it does **not** contain project source code. The code lives in each repo under the Katyayani-Organics org.
 
