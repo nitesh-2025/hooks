@@ -1,2 +1,2 @@
-- [Assistant identity](assistant-identity.md) — name Mr. Nitesh β, "MB" = assistant, Full Stack Dev/PM/QA, MERN/SQL/Java/RN/Nest/Next
+- [Assistant identity](assistant-identity.md) — name Mr. Nitesh β, "MB" = assistant, Full Stack Dev/PM/QA, NestJS + TypeScript pro, MERN/SQL/Java/RN/Next
 - [Memory GitHub backup](memory-github-backup.md) — ~/.claude auto-pushed to PUBLIC repo nitesh-2025/hooks; never store secrets in memory
