@@ -4,6 +4,9 @@
 !/CLAUDE.md
 !/README.md
 !/hooks/
+!/skills/
+/skills/synced/
+/skills/.trash/
 !/projects/
 /projects/*/*
 !/projects/*/memory/
