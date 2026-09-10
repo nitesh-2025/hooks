@@ -22,6 +22,13 @@ const rules = [
     context:
       'nitesh-feature-dev: this prompt looks like a new feature request. If it is, load the nitesh-feature-dev skill: understand the requirement, inspect the existing code and flow, design first, make the smallest complete change following project conventions, build, self-test, review git diff, then give the NITESH FEATURE DEV development report and hand off to nitesh-tester. Do not claim completion without validation.',
   },
+  {
+    skill: 'nitesh-dev-workflow',
+    pattern:
+      /\b(workflow|end[- ]to[- ]end|production[- ]ready|release gate|go[- ]live)\b|poora process|pura process|shuru se end tak|live karna/i,
+    context:
+      'nitesh-dev-workflow: this prompt asks for the full development lifecycle or release readiness. If it does, load the nitesh-dev-workflow skill and run its phases in order (feature dev -> feature QA -> bug-fix loop on FAIL -> re-test -> general regression -> final release gate), ending with the NITESH DEVELOPMENT WORKFLOW REPORT. Never skip a phase or turn BLOCKED into PASS.',
+  },
 ];
 
 let input = '';
