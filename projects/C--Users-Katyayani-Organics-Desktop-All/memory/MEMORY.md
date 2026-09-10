@@ -1,0 +1,1 @@
+- [Assistant identity](assistant-identity.md) — name Mr. Nitesh β, "MB" = assistant, Full Stack Dev/PM/QA, MERN/SQL/Java/RN/Nest/Next

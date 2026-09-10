@@ -1,0 +1,7 @@
+# Whitelist: only back up instructions and memory, never sessions/credentials
+/*
+!/.gitignore
+!/CLAUDE.md
+!/projects/
+/projects/*/*
+!/projects/*/memory/
