@@ -9,9 +9,10 @@ Backup of Claude Code global instructions, memory and hooks for **Mr. Nitesh β*
 | [`projects/.../memory/`](projects/C--Users-Katyayani-Organics-Desktop-All/memory) | Persistent memory files (`MEMORY.md` index + one file per fact) |
 | [`skills/nitesh-bug-fix/SKILL.md`](skills/nitesh-bug-fix/SKILL.md) | Standard bug-fix workflow (root cause → smallest fix → build/tests → diff review → report) |
 | [`skills/nitesh-tester/SKILL.md`](skills/nitesh-tester/SKILL.md) | Professional QA & regression testing (expected vs actual → full flow → edge cases → PASS / FAIL / BLOCKED report) |
+| [`skills/nitesh-feature-dev/SKILL.md`](skills/nitesh-feature-dev/SKILL.md) | Senior feature development (understand → inspect → design → smallest complete change → build → self-test → DEVELOPMENT REPORT → handoff to tester) |
 | [`commands/nitesh-test.md`](commands/nitesh-test.md) | `/nitesh-test [path or alias]` — find and run the project's tests, explain failures, summarize pass/fail/time |
 | [`hooks/memory-backup.sh`](hooks/memory-backup.sh) | Stop hook that auto-commits and pushes changes here |
-| [`hooks/skill-reminders.js`](hooks/skill-reminders.js) | UserPromptSubmit hook — bug/error prompts → `nitesh-bug-fix`, test/QA/regression prompts → `nitesh-tester` |
+| [`hooks/skill-reminders.js`](hooks/skill-reminders.js) | UserPromptSubmit hook — bug/error prompts → `nitesh-bug-fix`, test/QA/regression prompts → `nitesh-tester`, feature/"banao" prompts → `nitesh-feature-dev` |
 
 Note: the `projects/` folder is Claude Code's memory store (named after the workspace path) — it does **not** contain project source code. The code lives in each repo under the Katyayani-Organics org.
 

@@ -15,6 +15,13 @@ const rules = [
     context:
       'nitesh-tester: this prompt looks like a testing/QA request. If it is, load the nitesh-tester skill: understand EXPECTED vs ACTUAL and the existing flow, test the full flow, edge cases, errors, build and regression, then give the NITESH TESTER QA REPORT with a PASS / FAIL / BLOCKED verdict. Never call BLOCKED a PASS.',
   },
+  {
+    skill: 'nitesh-feature-dev',
+    pattern:
+      /\b(features?|implement(s|ed|ing|ation)?|develop|new (page|screen|api|endpoint|module|component|flow))\b|banao|bana do|banana hai|add kar|naya|nayi/i,
+    context:
+      'nitesh-feature-dev: this prompt looks like a new feature request. If it is, load the nitesh-feature-dev skill: understand the requirement, inspect the existing code and flow, design first, make the smallest complete change following project conventions, build, self-test, review git diff, then give the NITESH FEATURE DEV development report and hand off to nitesh-tester. Do not claim completion without validation.',
+  },
 ];
 
 let input = '';
