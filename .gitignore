@@ -2,6 +2,7 @@
 /*
 !/.gitignore
 !/CLAUDE.md
+!/hooks/
 !/projects/
 /projects/*/*
 !/projects/*/memory/
