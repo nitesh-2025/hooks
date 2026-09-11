@@ -51,6 +51,7 @@ When the user says an alias, it means that project folder:
 | **b2b** | `sales-app` | `C:\Users\Katyayani Organics\Desktop\All\sales-app` | Vite + React + TS + shadcn, Firebase | main |
 | **pos-backend** | `franchise-offline-hub` | `C:\Users\Katyayani Organics\Desktop\All\franchise-offline-hub` | NestJS + Mongoose | main |
 | **gb** | `global-connect-backend` | `C:\Users\Katyayani Organics\Desktop\All\global-connect-backend` | NestJS 11 + Mongoose + Socket.io + Supabase | prod (default: master) |
+| **gf** | `global-connect-new` | `C:\Users\Katyayani Organics\Desktop\All\global-connect-new` | Vite + React + TS + shadcn, Supabase, TanStack Query | main |
 | — | `Inventory-Management-Backend` | `C:\Users\Katyayani Organics\Desktop\All\Inventory-Management-Backend` | Express + Mongoose + Socket.io | main |
 
-Note: alias **pos** = `franchise-pos` (frontend) and **pos-backend** = `franchise-offline-hub` (NestJS backend) — different folders; alias **rlm** = `rlm-portal` only; **rlm-admin** = `rlm-admin-final`; **nest** = `rlm-backend-nest` (not `ko-sales-backend`, even though that is also NestJS); **gb** = `global-connect-backend` (Global Connect NestJS backend).
+Note: alias **pos** = `franchise-pos` (frontend) and **pos-backend** = `franchise-offline-hub` (NestJS backend) — different folders; alias **rlm** = `rlm-portal` only; **rlm-admin** = `rlm-admin-final`; **nest** = `rlm-backend-nest` (not `ko-sales-backend`, even though that is also NestJS); **gb** = `global-connect-backend` (Global Connect NestJS backend) and **gf** = `global-connect-new` (Global Connect frontend) — a pair sharing the same Supabase project and SSO.
