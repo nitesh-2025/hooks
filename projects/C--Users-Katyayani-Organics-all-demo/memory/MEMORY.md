@@ -1,0 +1,1 @@
+- [Portal UI text is English only](portal-ui-text-english-only.md) — Hinglish is fine in chat and comments, never on screen.
