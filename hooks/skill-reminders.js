@@ -29,6 +29,13 @@ const rules = [
     context:
       'nitesh-dev-workflow: this prompt asks for the full development lifecycle or release readiness. If it does, load the nitesh-dev-workflow skill and run its phases in order (feature dev -> feature QA -> bug-fix loop on FAIL -> re-test -> general regression -> final release gate), ending with the NITESH DEVELOPMENT WORKFLOW REPORT. Never skip a phase or turn BLOCKED into PASS.',
   },
+  {
+    skill: 'nitesh-designer',
+    pattern:
+      /\b(design(s|ed|ing|er)?|redesign|ui|ux|mockups?|wireframes?|layouts?|figma|look and feel)\b|dikhne|dikhna|sundar|achha dikh/i,
+    context:
+      'nitesh-designer: this prompt involves UI/UX design. If it does, load the nitesh-designer skill: establish Figma-level structure (grid, spacing, type scale, tokens, states), weigh conventional -> better -> exceptional solutions, check every persona (first-time, expert, power user, manager, support, developer, business), pick the right information density, and avoid trend-copying and generic SaaS templates. Stay consistent with the existing app components.',
+  },
 ];
 
 let input = '';
