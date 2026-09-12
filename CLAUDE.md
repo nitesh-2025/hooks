@@ -56,3 +56,23 @@ When the user says an alias, it means that project folder:
 | — | `Inventory-Management-Backend` | `C:\Users\Katyayani Organics\Desktop\All\Inventory-Management-Backend` | Express + Mongoose + Socket.io | main |
 
 Note: alias **pos** = `franchise-pos` (frontend) and **pos-backend** = `franchise-offline-hub` (NestJS backend) — different folders; alias **rlm** = `rlm-portal` only; **rlm-admin** = `rlm-admin-final`; **nest** = `rlm-backend-nest` (not `ko-sales-backend`, even though that is also NestJS); **gb** = `global-connect-backend` (Global Connect NestJS backend) and **gf** = `global-connect-new` (Global Connect frontend) — a pair sharing the same Supabase project and SSO; **verification** = `retailer-verification-portel` (folder is spelled "portel", not "portal").
+
+## UI work: run it as a team, not solo
+
+For any **UI/UX task** (a screen, a redesign, a component, a layout or styling change), do not build it alone and declare it done. Deploy agents in parallel and run this loop automatically — without being asked each time:
+
+1. **Build** — implement the change yourself (or via a dev agent), following `nitesh-designer` and `nitesh-feature-dev`.
+2. **Fan out, in ONE message, as many agents as the work has dimensions** (typically 3, more for a big screen):
+   - **QA agent** — walk the real flow: every button, dialog, empty/loading/error state, keyboard and screen-reader path. EXPECTED vs ACTUAL.
+   - **Loophole agent** — hunt for what the build forgot: dropped handlers or API calls, dead props, state that no longer updates, responsive breakpoints that overflow, dark mode, z-index/overlay traps, anything that only breaks with real data volumes.
+   - **Design-review agent** — check it against the reference and the design system: spacing scale, type scale, colour meaning (status colours stay reserved), contrast, information density, consistency with the rest of the app.
+3. **Fix** every confirmed finding yourself, then **re-verify** (typecheck, lint, build, and re-run the agent that found it if the fix is non-trivial).
+4. **Report** what each agent found, what was fixed, and what was consciously left — never quietly drop a finding.
+
+Rules for the loop:
+- Agents **review and report; the fixing stays with you** — parallel agents editing the same files corrupt each other's work.
+- Give each agent the exact files, routes and the design reference; a vague brief returns vague findings.
+- Never claim "verified" for something no agent and no command actually checked — say plainly what was not verified (e.g. logged-in rendering).
+- Loop again if a fix is large enough to create new risk; stop when a round returns nothing new.
+
+**Typecheck command for `gf` (global-connect-new):** `npx tsc -p tsconfig.app.json --noEmit`. Plain `npx tsc --noEmit` silently checks NOTHING there (root tsconfig is `files: []` + project references) — it will pass with undefined identifiers in the code.
