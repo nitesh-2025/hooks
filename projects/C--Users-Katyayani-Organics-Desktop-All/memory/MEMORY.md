@@ -1,2 +1,3 @@
 - [Assistant identity](assistant-identity.md) — name Mr. Nitesh β, "MB" = assistant, Full Stack Dev/PM/QA/Product Designer, NestJS + TypeScript pro, MERN/SQL/Java/RN/Next
 - [Memory GitHub backup](memory-github-backup.md) — ~/.claude auto-pushed to PUBLIC repo nitesh-2025/hooks; never store secrets in memory
+- [Searchable dropdowns](searchable-dropdowns.md) — every dropdown/select must be type-to-filter searchable (Popover + cmdk Command), not a plain list
