@@ -1,6 +1,6 @@
 ---
 name: projects
-description: Katyayani Organics project aliases and how to work in each one. Use whenever the user names a project by alias — pos, pos-backend, ko, nest, rlm, rlm-admin, b2b, gb, gf — or asks to run, build, test, lint, fix, or check git in one of these projects.
+description: Katyayani Organics project aliases and how to work in each one. Use whenever the user names a project by alias — pos, pos-backend, ko, nest, rlm, rlm-admin, b2b, gb, gf, verification — or asks to run, build, test, lint, fix, or check git in one of these projects.
 ---
 
 # Project aliases
@@ -16,6 +16,7 @@ description: Katyayani Organics project aliases and how to work in each one. Use
 | **pos-backend** | `franchise-offline-hub` | `C:\Users\Katyayani Organics\Desktop\All\franchise-offline-hub` | NestJS + Mongoose | main |
 | **gb** | `global-connect-backend` | `C:\Users\Katyayani Organics\Desktop\All\global-connect-backend` | NestJS 11 + Mongoose + Socket.io + Supabase | prod (default: master) |
 | **gf** | `global-connect-new` | `C:\Users\Katyayani Organics\Desktop\All\global-connect-new` | Vite + React + TS + shadcn, Supabase, TanStack Query, Twilio/Telnyx voice | main |
+| **verification** | `retailer-verification-portel` | `C:\Users\Katyayani Organics\Desktop\All\retailer-verification-portel` | Vite + React + TS + shadcn, Supabase + Firebase, Redux Toolkit, TanStack Query, framer-motion, jsPDF | nitesh-k (default: main) |
 
 No alias: `Inventory-Management-Backend` (Express + Mongoose + Socket.io).
 
@@ -24,6 +25,7 @@ Don't mix these up:
 - **nest** = `rlm-backend-nest`. `ko-sales-backend` is also NestJS but its alias is **ko**.
 - **rlm** = `rlm-portal` only. **rlm-admin** = `rlm-admin-final`.
 - **gb** = `global-connect-backend` (NestJS). Has its own `CLAUDE.md` in the repo — read it before working there.
+- **verification** = `retailer-verification-portel` — mind the folder spelling ("portel", not "portal"). Its own Supabase project, not gb/gf's. Has a repo `CLAUDE.md` plus many `*.md` flow docs at the root — read those before working there.
 - **gf** = `global-connect-new` (frontend of **gb**). Same Supabase project and SSO as gb; gb's CORS `FRONTEND_URL` is gf's Vite dev server (localhost:8080). Has both `package-lock.json` and `bun.lockb` — use npm unless told otherwise.
 
 All repos live in the GitHub org **Katyayani-Organics**.
@@ -40,6 +42,7 @@ All repos live in the GitHub org **Katyayani-Organics**.
 | b2b | dev, build, build:dev, lint, preview |
 | pos-backend | build, format, start, dev, start:debug, start:prod, lint (no test script) |
 | gb | build, format, start, start:dev, start:debug, start:prod, lint, test, test:watch, test:cov, test:debug, test:e2e (husky pre-commit) |
+| verification | dev, build, build:dev, lint, preview, test (vitest) |
 | gf | dev, build, build:dev, lint, preview (Playwright configured, but no test script) |
 
 Scripts can change — re-check `package.json` before relying on one.

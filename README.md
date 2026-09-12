@@ -31,6 +31,7 @@ Note: the `projects/` folder is Claude Code's memory store (named after the work
 | pos-backend | `franchise-offline-hub` |
 | gb | `global-connect-backend` |
 | gf | `global-connect-new` |
+| verification | `retailer-verification-portel` |
 
 Lives at `~/.claude` on the machine. Session transcripts, settings and credentials are excluded by `.gitignore`.
 
