@@ -1,1 +1,2 @@
 - [Portal UI text is English only](portal-ui-text-english-only.md) — Hinglish is fine in chat and comments, never on screen.
+- [Chat lists: unread first](chat-lists-unread-first.md) — sf Team Chats page + chat drawer always sort unread conversations to the top.
