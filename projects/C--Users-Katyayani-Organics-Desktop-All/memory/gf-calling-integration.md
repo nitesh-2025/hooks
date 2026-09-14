@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: f444ed37-7c63-4de1-a4c2-e3c95d6476c3
-  modified: 2026-09-14T08:43:24.755Z
+  modified: 2026-09-14T11:22:07.317Z
 ---
 
 Darshan asked (2026-09-14) to bring retailer-verification-portel's calling into gf (global-connect-new) "with 100% accuracy": VoIP (JsSIP → Asterisk, creds per agent) and normal calling (CallerApp `POST /send-single-call` + `/call-control`, status via Firebase RTDB `calls/{uuid}`, `agents/{topic}`), same bottom ActiveCallBar stages (Connecting amber / Ringing indigo / On call emerald / On hold slate), multi-agent build, end-to-end tested.
@@ -17,6 +17,7 @@ Decisions the user made:
 - Disposition form = verification's (connected/not_connected + reason + next action + follow-up datetime + probability), mapped to gf outcomes for gb stage rules.
 - On connect show verification's CallWorkspaceDrawer (not bar-only).
 - Env values copied from verification .env into gf `.env.local` (git-ignored; gf `.env` is tracked, never put secrets there); VITE_SIP_PASSWORD fallback not copied.
+- Later the same day the user changed selection to routing per dialled number: domestic → Vartalap (the agent's ko-sales VoIP/CallerApp), international → Exotel, env-controlled (`VITE_CALL_ROUTE_DOMESTIC`, `VITE_CALL_ROUTE_INTERNATIONAL` = vartalap|exotel, `VITE_CALL_DOMESTIC_COUNTRY_CODES`, default 91). Both providers run at once; manual provider toggle removed. Decided from the NUMBER, not lead market type. Vartalap missing → domestic falls back to Exotel; international never silently moves to Vartalap. Vercel still needs these vars.
 - Work on a new branch `feat/voip-callerapp-calling`, not style/nitesh-ui (that one feeds the beta PR). A parallel session (g-connect-f-claude) also works in gf — coordinate before git or shared files.
 
 **Why:** agents already use this calling in verification; gf must behave identically while keeping Exotel users working.
