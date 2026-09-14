@@ -2,3 +2,4 @@
 - [Memory GitHub backup](memory-github-backup.md) — ~/.claude auto-pushed to PUBLIC repo nitesh-2025/hooks; never store secrets in memory
 - [Searchable dropdowns](searchable-dropdowns.md) — every dropdown/select must be type-to-filter searchable (Popover + cmdk Command), not a plain list
 - [gf calling integration](gf-calling-integration.md) — 2026-09-14 decisions: VoIP+CallerApp into gf, Exotel stays, creds via ko-sales search-one, dispo gf+ko-sales (pii_id), drawer on connect
+- [gf call region rule](gf-call-region-rule.md) — +91 is always domestic (Vartalap, no silent Exotel fallback); non-+91 is international
