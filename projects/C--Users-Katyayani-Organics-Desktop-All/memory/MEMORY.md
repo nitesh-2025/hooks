@@ -4,3 +4,4 @@
 - [gf calling integration](gf-calling-integration.md) — 2026-09-14 decisions: VoIP+CallerApp into gf, Exotel stays, creds via ko-sales search-one, dispo gf+ko-sales (pii_id), drawer on connect
 - [gf call region rule](gf-call-region-rule.md) — +91 is always domestic (Vartalap, no silent Exotel fallback); non-+91 is international
 - [call_logs_v1](call-logs-v1.md) — 2026-09-15: all GC calls → call_logs_v1; one `outcome` column, agent name via view not row, is_missed generated, no status/ring_sec
+- [UI copy in English](ui-copy-english.md) — all in-app UI text in English, never Hinglish (chat with user can stay Hinglish)
