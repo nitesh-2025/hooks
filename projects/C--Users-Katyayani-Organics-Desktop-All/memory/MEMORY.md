@@ -6,3 +6,4 @@
 - [call_logs_v1](call-logs-v1.md) — 2026-09-15: all GC calls → call_logs_v1; one `outcome` column, agent name via view not row, is_missed generated, no status/ring_sec
 - [UI copy in English](ui-copy-english.md) — all in-app UI text in English, never Hinglish (chat with user can stay Hinglish)
 - [MD doc format](md-doc-format.md) — every .md: # Title + meta table (Base URL) in header; bottom ## Description with Created by Mr. Nitesh β, date, base URL
+- [rlm-portal typecheck](rlm-portal-typecheck.md) — must use `tsc -p tsconfig.app.json`; plain `tsc --noEmit` checks 0 files
