@@ -11,7 +11,7 @@ metadata:
 Every `.md` file I create (API docs, plans, flow docs — any project) must have:
 
 1. **Header:** `# <Title>` as the first line, right under it a small meta table — Project, **Base URL** (full local URL like `http://localhost:<port>/api/v2/...` plus the path), Content-Type (for APIs), Status.
-2. **Bottom:** a `## Description` section after a `---` separator — short, proper explanation of what the doc/feature is, collections/DB involved, auth, **Base URL**, **Created by: Mr. Nitesh β**, **Created on: <YYYY-MM-DD>**.
+2. **Bottom:** a `## Description` section after a `---` separator — short, proper explanation of what the doc/feature is, collections/DB involved, auth, **Base URL**, **Created by: Nitesh** (user 2026-09-18: "Nitesh rahega", not "Mr. Nitesh β"), **Created on: <YYYY-MM-DD>**.
 
 **Why:** User (2026-09-17) asked that every md have a title in the header and a proper description at the bottom with created-by and base URL.
 
