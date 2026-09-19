@@ -7,3 +7,4 @@
 - [UI copy in English](ui-copy-english.md) — all in-app UI text in English, never Hinglish (chat with user can stay Hinglish)
 - [MD doc format](md-doc-format.md) — every .md: # Title + meta table (Base URL) in header; bottom ## Description with Created by Nitesh, date, base URL
 - [rlm-portal typecheck](rlm-portal-typecheck.md) — must use `tsc -p tsconfig.app.json`; plain `tsc --noEmit` checks 0 files
+- [Four-agent review](four-agent-review.md) — every UI round: 4 parallel review agents (QA, loophole, design, a11y/responsive); I fix
