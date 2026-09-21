@@ -76,3 +76,12 @@ Rules for the loop:
 - Loop again if a fix is large enough to create new risk; stop when a round returns nothing new.
 
 **Typecheck command for `gf` (global-connect-new):** `npx tsc -p tsconfig.app.json --noEmit`. Plain `npx tsc --noEmit` silently checks NOTHING there (root tsconfig is `files: []` + project references) — it will pass with undefined identifiers in the code.
+
+## Knowledge base — READ ONLY, always
+
+`C:\Users\Katyayani Organics\Desktop\All\knowlegde-base` (the Obsidian/git KB vault) is **read-only**.
+
+- **Never create, edit, move, delete, stage, commit or push anything inside it** — not notes, not `AGENTS.md` changelog entries, not `README.md` links, not scripts. No exceptions for "small" or "proper standard-following" edits.
+- **Only read and search.** Answer from it, quote it, summarise it, compare things in it.
+- Any output produced from it — comparison, report, audit, JSON, gap analysis — goes **in chat**, or to a file **outside** the vault (scratchpad or another folder). Never into the vault.
+- Only override this when Darshan explicitly says to write/update the KB for that specific change.

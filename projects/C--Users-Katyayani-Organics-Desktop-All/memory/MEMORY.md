@@ -8,3 +8,4 @@
 - [MD doc format](md-doc-format.md) — every .md: # Title + meta table (Base URL) in header; bottom ## Description with Created by Nitesh, date, base URL
 - [rlm-portal typecheck](rlm-portal-typecheck.md) — must use `tsc -p tsconfig.app.json`; plain `tsc --noEmit` checks 0 files
 - [Four-agent review](four-agent-review.md) — every UI round: 4 parallel review agents (QA, loophole, design, a11y/responsive); I fix
+- [Knowledge base read-only](knowledge-base-read-only.md) — knowlegde-base vault: read/search only, never write, edit or commit inside it
