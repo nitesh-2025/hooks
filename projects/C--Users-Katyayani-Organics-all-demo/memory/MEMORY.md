@@ -2,3 +2,4 @@
 - [Chat lists: unread first](chat-lists-unread-first.md) — sf Team Chats page + chat drawer always sort unread conversations to the top.
 - [Module access is portal-wise](module-access-portal-wise.md) — no role gates in sb API for modules; chat is for every active user.
 - [sf Mail is personal](sf-mail-is-personal.md) — Quick → Mail = each user's own mailbox like gf, not a shared inbox.
+- [sb: Render free plan blocks SMTP](sb-render-free-blocks-smtp.md) — mail send 502 on deploy is infra, not code.
