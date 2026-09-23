@@ -6,7 +6,7 @@ metadata:
 ---
 
 Zoho mailboxes on `stockologysecurities.com` live in the **India** data centre.
-Working hosts: `smtppro.zoho.in:465` (SMTP) and `imappro.zoho.in:993` (IMAP).
+Working hosts: `smtppro.zoho.in:587` STARTTLS (SMTP — 465 is blocked on the deployed host) and `imappro.zoho.in:993` (IMAP).
 Company-domain addresses need the `pro` prefix; only addresses on Zoho's own
 domains use the plain hosts.
 

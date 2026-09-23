@@ -2,7 +2,7 @@
 - [Chat lists: unread first](chat-lists-unread-first.md) — sf Team Chats page + chat drawer always sort unread conversations to the top.
 - [Module access is portal-wise](module-access-portal-wise.md) — no role gates in sb API for modules; chat is for every active user.
 - [sf Mail is personal](sf-mail-is-personal.md) — Quick → Mail = each user's own mailbox like gf, not a shared inbox.
-- [sb: Render free plan blocks SMTP](sb-render-free-blocks-smtp.md) — mail send 502 on deploy is infra, not code.
+- [sb deploy: SMTP 465 blocked, 587 works](sb-render-free-blocks-smtp.md) — Zoho on 587 STARTTLS; Gmail worked on Railway, Zoho on 465 did not.
 - [sf: typecheck with tsc -p tsconfig.json](sf-typecheck-command.md) — `tsc -b --noEmit` errors out there.
 - [sf Mail thread display rules](sf-mail-thread-display-rules.md) — every message expanded; one surface for all replies.
 - [Zoho mailboxes are in the India DC](zoho-mailboxes-india-dc.md) — smtppro.zoho.in; the .com pair fails like a wrong password.

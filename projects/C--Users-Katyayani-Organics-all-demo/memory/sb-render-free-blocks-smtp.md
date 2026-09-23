@@ -1,12 +1,15 @@
 ---
 name: sb-render-free-blocks-smtp
-description: sb mail send fails with 502 on Render because the free plan blocks outbound SMTP ports; IMAP still works.
+description: Deployed sb (Railway/Render) blocks outbound SMTP port 465 but 587 works — Zoho must use 587 STARTTLS.
 metadata:
+  node_type: memory
   type: project
+  originSessionId: 950a22b0-49d9-4b0c-943b-475f6f2c1b0d
+  modified: 2026-09-23T20:14:12.715Z
 ---
 
-`sb` (node-backend) is deployed on Render at https://node-stocklogy-backend.onrender.com with `plan: free` in `render.yaml`. Render free web services block outbound traffic to SMTP ports 25/465/587 (rolled out Sept 2025), so `POST /mail/send` fails while reading/syncing mail keeps working.
+On the deployed `sb` (Railway, earlier Render free), outbound SMTP on **465 is blocked but 587 works**. Proof (2026-09-24): Gmail (`smtp.gmail.com:587`) connected fine on Railway while Zoho (`:465`) failed; locally both worked. IMAP 993 is open.
 
-**Why:** IMAP (993) is not blocked, SMTP (Zoho 465) is. That asymmetry — "GET works, send doesn't" — is the signature of this block, not a code bug. The 502 is the app's own status from `mail.service.ts` → `AppError(mailErrorMessage(e), 502)`, not a Render gateway error.
+**Why:** Earlier I told the user "the platform blocks all SMTP, upgrade the plan" — that was wrong, the user's Gmail observation disproved it. The real split is per port.
 
-**How to apply:** If mail send breaks on the deployed `sb`, check Render logs for `code=ETIMEDOUT command=CONN` before touching `mail.transport.ts` or `mail.service.ts` — no code change can fix a blocked port. The fix is infra: paid Render instance, or move off Render. Do NOT propose SendGrid/Resend as the fix; it breaks the per-user "send from your own mailbox with your own app password" design. Port 25 stays blocked even on paid plans. Verified 2026-09-21; stale if the plan is upgraded.
+**How to apply:** For deployed mail failures, compare ports before blaming the plan. Zoho SMTP now goes out on 587 + STARTTLS: `zohoHostCandidates` / `PROVIDER_HOSTS` use 587, and `toSubmissionPort()` in `mail-account.model.ts` maps stored Zoho rows on 465 → 587 at dial time. System mail (`SMTP_*` / `SUPPORT_SMTP_*` env in `common/mailer.ts`) must also use port 587 on the deployed env. Do NOT propose SendGrid/Resend — breaks the per-user "send from your own mailbox" design. Related: [[zoho-mailboxes-india-dc]].
