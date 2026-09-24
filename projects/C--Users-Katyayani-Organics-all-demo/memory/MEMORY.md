@@ -6,3 +6,4 @@
 - [sf: typecheck with tsc -p tsconfig.json](sf-typecheck-command.md) — `tsc -b --noEmit` errors out there.
 - [sf Mail thread display rules](sf-mail-thread-display-rules.md) — every message expanded; one surface for all replies.
 - [Zoho mailboxes are in the India DC](zoho-mailboxes-india-dc.md) — smtppro.zoho.in; the .com pair fails like a wrong password.
+- [Access is permission-based](access-is-permission-based.md) — gate sf/sb actions by permission key (accessGuard / has), not ADMIN/SUPER_ADMIN role names.
