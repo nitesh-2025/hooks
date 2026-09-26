@@ -7,3 +7,4 @@
 - [sf Mail thread display rules](sf-mail-thread-display-rules.md) — every message expanded; one surface for all replies.
 - [Zoho mailboxes are in the India DC](zoho-mailboxes-india-dc.md) — smtppro.zoho.in; the .com pair fails like a wrong password.
 - [Access is permission-based](access-is-permission-based.md) — gate sf/sb actions by permission key (accessGuard / has), not ADMIN/SUPER_ADMIN role names.
+- [Local dev servers](local-dev-servers.md) — sf on 5174 (IPv6 only), sb on 5005 via devtunnel; Chrome tools failed on localhost.
