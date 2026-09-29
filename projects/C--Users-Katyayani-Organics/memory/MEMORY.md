@@ -1,2 +1,3 @@
-- [Glass Neon terminal setup](glass-neon-terminal-setup.md) — file locations, backups and quirks of the user's custom terminal theme
+- [Glass Neon terminal setup](glass-neon-terminal-setup.md) — file locations, rollback script, design decisions and quirks of the user's custom terminal theme
 - [No screen-area screenshots](no-screen-area-screenshots.md) — capture a specific window by handle, never the screen region or foreground window
+- [Test isolation for shell work](test-isolation-for-shell-work.md) — interactive shell tests must not touch the user's history or real HOME
