@@ -1,1 +1,2 @@
 - [Glass Neon terminal setup](glass-neon-terminal-setup.md) — file locations, backups and quirks of the user's custom terminal theme
+- [No screen-area screenshots](no-screen-area-screenshots.md) — capture a specific window by handle, never the screen region or foreground window
