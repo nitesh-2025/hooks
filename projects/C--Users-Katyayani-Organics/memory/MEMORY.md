@@ -1,0 +1,1 @@
+- [Glass Neon terminal setup](glass-neon-terminal-setup.md) — file locations, backups and quirks of the user's custom terminal theme
