@@ -5,7 +5,7 @@
 - [gf call region rule](gf-call-region-rule.md) — +91 is always domestic (Vartalap, no silent Exotel fallback); non-+91 is international
 - [call_logs_v1](call-logs-v1.md) — 2026-09-15: all GC calls → call_logs_v1; one `outcome` column, agent name via view not row, is_missed generated, no status/ring_sec
 - [UI copy in English](ui-copy-english.md) — all in-app UI text in English, never Hinglish (chat with user can stay Hinglish)
-- [MD doc format](md-doc-format.md) — every .md: # Title + meta table (Base URL) in header; bottom ## Description with Created by Nitesh, date, base URL
+- [MD doc format](md-doc-format.md) — every .md: # Title + meta table (Base URL) in header; bottom ## Description with Created by Nitesh, date, base URL; schemas as copy-able json blocks (sample values + typed)
 - [rlm-portal typecheck](rlm-portal-typecheck.md) — must use `tsc -p tsconfig.app.json`; plain `tsc --noEmit` checks 0 files
 - [Four-agent review](four-agent-review.md) — every UI round: 4 parallel review agents (QA, loophole, design, a11y/responsive); I fix
 - [Knowledge base read-only](knowledge-base-read-only.md) — knowlegde-base vault: read/search only, never write, edit or commit inside it
