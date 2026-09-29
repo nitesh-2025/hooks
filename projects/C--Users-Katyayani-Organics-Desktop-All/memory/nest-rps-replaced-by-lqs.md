@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6106db4e-dda2-48c5-a332-9ecbb1b52fe4
-  modified: 2026-09-29T08:51:57.539Z
+  modified: 2026-09-29T09:58:09.446Z
 ---
 
 In **nest** (`rlm-backend-nest`, branch `query-event-opt`) the retailer RPS is dead (nothing computes it). On 2026-09-29 Darshan decided:
@@ -21,7 +21,9 @@ In **nest** (`rlm-backend-nest`, branch `query-event-opt`) the retailer RPS is d
 
 **How to apply:**
 - New RPS-looking reads in nest go through `LqsScoreService` (`src/common/lqs-score/`), never `retailers_v2.rps_info`.
-- Everything in the list path keys on `retailers_v2.pii_id $in [...]`; whether production has an index on `pii_id` was NOT confirmed (the KB index list of 2026-07-08 lacks it). Ask for it to be checked/built before promising speed.
+- Everything in the list path keys on `retailers_v2.pii_id $in [...]`. Production has the index (`pii_id_plain`), confirmed by a read-only check on 2026-09-29; the KB index list of 2026-07-08 is out of date on this. Beta was not checked.
+- On 2026-09-29 Darshan allowed a **read-only** test against the production MongoDB (URI from the repo's `.env`, never printed). Done with every driver write blocked in the script and the app not booted. Numbers are in `rlm-backend-nest/docs/rps-to-lqs-merge.md` section 9.7. This was approval for that test, not a standing permission.
+- Real data: 32,322 retailers, 30,871 with LQS > 0 (old RPS: only 10,127 > 0 and 9 at 50+). So score filters select thousands of retailers, not a handful — anything that embeds "retailers in a score range" into another query must be bounded.
 - The real fix for team-scope latency is storing the owner on `retailers_v2` with an index — needs his approval (production write).
 - NOT covered: rlm-admin RPS screens (Control Tower, Master Table, Analysis, Tracker, Dashboard Avg-RPS card) call the **utils host**, which has no local repo — they still show old RPS.
 - Left untouched on purpose: the orphan index `rps_info.overall_rps_score_-1` and old stored `rps_info` blocks in the database (dropping = production change); `update` DTO still accepts `rps_info` and ignores it.
