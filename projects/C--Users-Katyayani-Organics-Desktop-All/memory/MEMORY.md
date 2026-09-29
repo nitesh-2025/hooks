@@ -9,3 +9,4 @@
 - [rlm-portal typecheck](rlm-portal-typecheck.md) — must use `tsc -p tsconfig.app.json`; plain `tsc --noEmit` checks 0 files
 - [Four-agent review](four-agent-review.md) — every UI round: 4 parallel review agents (QA, loophole, design, a11y/responsive); I fix
 - [Knowledge base read-only](knowledge-base-read-only.md) — knowlegde-base vault: read/search only, never write, edit or commit inside it
+- [nest RPS replaced by LQS](nest-rps-replaced-by-lqs.md) — 2026-09-29: rps names stay, value = leads_v2 lqs.priority_score (cap 100), read-time, breakdown null; utils-host admin RPS screens not covered
