@@ -1,4 +1,4 @@
 - [Glass Neon terminal setup](glass-neon-terminal-setup.md) — file locations, current calm single-accent palette (#111827 / #7DD3A8, since 2026-09-30), rollback, design decisions and quirks of the user's custom terminal theme
-- [Glass mysql colours](glass-mysql-colours.md) — mysql painter in WSL: files, switches, calm palette (no rainbow, no background change), quirks
+- [Glass mysql colours](glass-mysql-colours.md) — mysql painter in WSL: files, switches, calm palette (no rainbow, no background change), each table's border in its own colour, quirks
 - [No screen-area screenshots](no-screen-area-screenshots.md) — capture a specific window by handle, never the screen region or foreground window
 - [Test isolation for shell work](test-isolation-for-shell-work.md) — interactive shell tests must not touch the user's history or real HOME
