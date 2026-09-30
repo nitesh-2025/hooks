@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: f155fdfc-c259-4e96-8e91-0c72958f2973
-  modified: 2026-09-30T04:53:40.606Z
+  modified: 2026-09-30T05:30:40.272Z
 ---
 
 Built on 2026-09-29 as "Glass Neon" (dark glass, blue/purple/cyan gradient). On 2026-09-30 the user replaced the look with a calm single-accent palette ("premium Ubuntu developer terminal, not neon / gaming / colourful database IDE"). The file names and folders still say `glass` / `GlassNeon`; only the colours changed, the prompt structure stayed.
@@ -16,7 +16,7 @@ Current palette — keep it when editing, do not reintroduce other hues:
 - ONE accent `#7DD3A8` (soft green): prompts, success, directories, important elements.
 - Error `#F87171` only for real errors. Amber `#D6C08A` only for real warnings / git dirty / the DESTRUCTIVE badge.
 - Cursor `#E5E7EB`, selection `#374151` with `#F9FAFB` text.
-- Font `JetBrains Mono, CaskaydiaCove NF, Ubuntu Mono` (the fallback supplies powerline/icon glyphs), size 11, cellHeight 1.5, padding `12, 10`.
+- Font `JetBrains Mono, CaskaydiaCove NF` (the fallback supplies powerline/icon glyphs), size 11, cellHeight 1.5, padding `12, 10`. Every face in the list must be installed: with `Ubuntu Mono` in it, each new Windows Terminal window opened with a "Unable to find the following fonts" warning dialog and drew with the wrong font.
 - Typed commands and all syntax colouring are plain `#D1D5DB`; hierarchy comes from brightness and the one green, not from hues.
 
 Rollback (dry run with `-WhatIf`, parts with `-Only Terminal|PowerShell|Ubuntu|Fonts`):
