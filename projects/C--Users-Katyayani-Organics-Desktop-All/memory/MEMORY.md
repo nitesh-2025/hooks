@@ -11,3 +11,4 @@
 - [Knowledge base read-only](knowledge-base-read-only.md) — knowlegde-base vault: read/search only, never write, edit or commit inside it
 - [nest RPS replaced by LQS](nest-rps-replaced-by-lqs.md) — 2026-09-29: rps names stay, value = leads_v2 lqs.priority_score (cap 100), read-time, breakdown null; utils-host admin RPS screens not covered
 - [nest perf gotchas](nest-perf-gotchas.md) — production facts 2026-09-29: owners of 1M leads, Mongoose casts filter values, Mongo regex ≠ JS, $group order unstable, $indexStats not permitted
+- [nest access control](nest-access-control.md) — 2026-09-30: src/common/access layer, default warn mode, roles rule, open decisions (public routes, default webhook secret, USR-1002)
