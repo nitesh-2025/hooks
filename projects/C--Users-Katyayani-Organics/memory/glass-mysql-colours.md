@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 500248e5-7e36-4b7b-8d0b-526da9b77c10
-  modified: 2026-09-30T05:13:12.880Z
+  modified: 2026-09-30T05:20:22.458Z
 ---
 
 Installed on 2026-09-29 as part of the [[glass-neon-terminal-setup]]. In WSL Ubuntu, `mysql ...` and `sudo mysql ...` typed in an interactive bash run through a Python pty wrapper that adds colours to the client's output.
@@ -21,7 +21,7 @@ Switches: `GLASS_MYSQL=0` or `command mysql` = bare client; `GLASS_MYSQL_BG=#rrg
 Current look (the user's spec of 2026-09-30, "not a colourful database IDE") — keep it:
 - Terminal background is NOT changed by default.
 - `mysql>` and continuation prompts, `Query OK` / `Database changed`, header names (bold): accent `#7DD3A8`.
-- All data cells one colour `#D1D5DB`; typed SQL uncoloured.
+- All data cells (tables and `\G` values) the same green as the header, `#7DD3A8`, but not bold — the user asked on 2026-09-30 for "the whole table in the green of its header text". Before that the cells were `#D1D5DB` (that version is in `~/.config/glass-neon/previous-values-0930/`). Typed SQL uncoloured.
 - `NULL` (italic), row counts, timings, banner: `#9CA3AF`.
 - Table frame (`+---+`, `|`, the stars and colon of `\G`): every table its own deep colour, taken in turn from `BORDERS` — blue `#3B82F6`, red `#DC2626`, purple `#8B5CF6`, orange `#EA580C`, teal `#0891B2`, pink `#DB2777`, then from the start. The user asked for this on 2026-09-30 right after the calm palette ("only the table borders, dark unique colours like red, blue"); it is the one deliberate exception to the single-accent rule. Frame red `#DC2626` is not the error red `#F87171`. The version with the grey frame is in `~/.config/glass-neon/previous-borders-0930/`.
 - `ERROR` lines `#F87171`; warning lines and a non-zero `Warnings: N` amber `#D6C08A`.
