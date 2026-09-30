@@ -12,3 +12,4 @@
 - [nest RPS replaced by LQS](nest-rps-replaced-by-lqs.md) — 2026-09-29: rps names stay, value = leads_v2 lqs.priority_score (cap 100), read-time, breakdown null; utils-host admin RPS screens not covered
 - [nest perf gotchas](nest-perf-gotchas.md) — production facts 2026-09-29: owners of 1M leads, Mongoose casts filter values, Mongo regex ≠ JS, $group order unstable, $indexStats not permitted
 - [nest access control](nest-access-control.md) — 2026-09-30: src/common/access layer, default warn mode, roles rule, open decisions (public routes, default webhook secret, USR-1002)
+- [query-event-opt branches](query-event-opt-branches.md) — 2026-09-30: five query-event-opt branches, decisions (ship as is, RPS→LQS together), what waits on Darshan/prod; read BA&DBReports.md first
