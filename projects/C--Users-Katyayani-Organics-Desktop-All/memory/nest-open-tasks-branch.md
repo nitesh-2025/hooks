@@ -1,11 +1,11 @@
 ---
 name: nest-open-tasks-branch
-description: "2026-10-01 rlm-backend-nest local branch nest-open-tasks (from query-event-opt, uncommitted, 51 files): all 30 nest tasks done in code; Supabase (44 SQL) and MongoDB (45 dry-run scripts) packs prepared, nothing applied; settings default off/warn; decisions not to undo"
+description: "2026-10-01 rlm-backend-nest branch nest-open-tasks pushed as ONE commit e92aae7, tags before-nest-open-tasks / nest-open-tasks-v1 (undo = git revert nest-open-tasks-v1); all 30 nest tasks in code, not deployed; Supabase/Mongo packs + Desktop/All/db-run-pack hand-over; frontends pushed on query-event-opt; decisions not to undo"
 metadata:
   type: project
 ---
 
-`rlm-backend-nest` branch `nest-open-tasks` was cut from `query-event-opt` on 2026-10-01 so the release branch stays "ship as is". Work is uncommitted, not pushed, not deployed. Task list with status: `Desktop/All/BA&DB(RLM).md` (🔵 = code done, not deployed).
+`rlm-backend-nest` branch `nest-open-tasks` was cut from `query-event-opt` on 2026-10-01 so the release branch stays "ship as is". Pushed on 2026-10-01 as one commit `e92aae7` (157 files) with tags `before-nest-open-tasks` (= `c5f1b59`, the state before) and `nest-open-tasks-v1`; Darshan asked for the tag so the whole work can be removed on request: `git revert nest-open-tasks-v1` (or reset to `before-nest-open-tasks`). NOT deployed. Frontends (rlm-portal `54c8967`, rlm-admin-final `dfb2e1f`, retailer-verification-portel `5737de6`) are pushed on their `query-event-opt` branches. Hand-over pack for the DB admin: `Desktop/All/db-run-pack/` (project name + id on every SQL file). Task list with status: `Desktop/All/BA&DB(RLM).md` (🔵 = code done, not deployed).
 
 Choices made that a later session should not undo without asking:
 - Merged/split exclusion from order totals is OPT-IN (`exclude_merged_split=true`); default totals still match listed rows; `excluded` counts always returned.
