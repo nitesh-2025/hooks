@@ -1,11 +1,11 @@
 ---
 name: firebase-to-nest-migration
-description: "2026-10-01 branch `migration` (pushed, not merged/deployed) in rlm-backend-nest, rlm-portal, retailer-verification-portel: all direct Firebase calls moved behind nest APIs; rules Darshan set; what is not verified"
+description: "2026-10-01 branch `migration` (merged into query-event-opt, not deployed) in rlm-backend-nest, rlm-portal, retailer-verification-portel: all direct Firebase calls moved behind nest APIs; rules Darshan set; what is not verified"
 metadata:
   type: project
 ---
 
-On 2026-10-01 Darshan asked for a FULL migration: rlm-portal and retailer-verification-portel must not call Firebase directly; nest holds the service account. Committed and pushed 2026-10-01 on branch `migration` (cut from `query-event-opt`) in all three repos: nest `594cfcc`, verification `63f717c`, rlm-portal `d0f6ee9`. Not merged, not deployed. Contract: `rlm-backend-nest/docs/firebase-apis.md`. Task list: `Desktop/All/DEV Task/firebase-to-nest.md`.
+On 2026-10-01 Darshan asked for a FULL migration: rlm-portal and retailer-verification-portel must not call Firebase directly; nest holds the service account. Committed and pushed 2026-10-01 on branch `migration` (cut from `query-event-opt`) in all three repos: nest `594cfcc`, verification `63f717c`, rlm-portal `d0f6ee9`. Merged into `query-event-opt` the same day with `--no-ff` and a detailed merge message (nest `bf31411`, verification `c1dd222`, rlm-portal `de45b6f`), pushed. Not deployed. Contract: `rlm-backend-nest/docs/firebase-apis.md`. Task list: `Desktop/All/DEV Task/firebase-to-nest.md`.
 
 Darshan's rules (do not undo without asking):
 - Branch name is `migration`.
