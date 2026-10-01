@@ -14,3 +14,4 @@
 - [nest access control](nest-access-control.md) — 2026-09-30: src/common/access layer, default warn mode, roles rule, open decisions (public routes, default webhook secret, USR-1002)
 - [query-event-opt branches](query-event-opt-branches.md) — 2026-09-30: five query-event-opt branches, decisions (ship as is, RPS→LQS together), what waits on Darshan/prod; read BA&DBReports.md first
 - [nest-open-tasks branch](nest-open-tasks-branch.md) — 2026-10-01: pushed as one commit e92aae7 (now also origin/query-event-opt) with tags before-nest-open-tasks / nest-open-tasks-v1 (undo = revert the tag); not deployed; frontends pushed on query-event-opt; db-run-pack hand-over; settings default off/warn
+- [Firebase to nest migration](firebase-to-nest-migration.md) — 2026-10-01: branch `migration` in nest + rlm-portal + verification (uncommitted); app Firestore keys must not change, mirror default on; not live-tested, nest needs FIREBASE_DATABASE_URL
