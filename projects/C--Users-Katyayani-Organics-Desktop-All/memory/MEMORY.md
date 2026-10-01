@@ -13,4 +13,4 @@
 - [nest perf gotchas](nest-perf-gotchas.md) — production facts 2026-09-29: owners of 1M leads, Mongoose casts filter values, Mongo regex ≠ JS, $group order unstable, $indexStats not permitted
 - [nest access control](nest-access-control.md) — 2026-09-30: src/common/access layer, default warn mode, roles rule, open decisions (public routes, default webhook secret, USR-1002)
 - [query-event-opt branches](query-event-opt-branches.md) — 2026-09-30: five query-event-opt branches, decisions (ship as is, RPS→LQS together), what waits on Darshan/prod; read BA&DBReports.md first
-- [nest-open-tasks branch](nest-open-tasks-branch.md) — 2026-10-01: 24 nest tasks done in code on local branch, uncommitted, not deployed; new settings default off/warn; opt-in merged/split; docs gitignored
+- [nest-open-tasks branch](nest-open-tasks-branch.md) — 2026-10-01: all 30 nest tasks in code on local branch (uncommitted, not deployed); Supabase/Mongo script packs prepared, not applied; settings default off/warn; docs gitignored
