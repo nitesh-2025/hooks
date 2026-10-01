@@ -8,3 +8,6 @@
 - [Zoho mailboxes are in the India DC](zoho-mailboxes-india-dc.md) — smtppro.zoho.in; the .com pair fails like a wrong password.
 - [Access is permission-based](access-is-permission-based.md) — gate sf/sb actions by permission key (accessGuard / has), not ADMIN/SUPER_ADMIN role names.
 - [Local dev servers](local-dev-servers.md) — sf on 5174 (IPv6 only), sb on 5005 via devtunnel; Chrome tools failed on localhost.
+- [sb swagger.json: splice, never re-stringify](sb-swagger-json-additive-splice.md) — hand-formatted 2-space CRLF; additions only; payroll undocumented on purpose.
+- [sb/sf: dated branch → merge to main](sb-git-branch-and-main-merge.md) — work on e.g. 2026-10-01, "push to main" = merge + push; ticket folder absent locally.
+- [Ticket keys govern dept/hierarchy reads](sb-ticket-keys-govern-department-hierarchy-reads.md) — view_departments / view_hierarchy, IT_TEAM role, ship via migrate:ticket-keys, restart API.
