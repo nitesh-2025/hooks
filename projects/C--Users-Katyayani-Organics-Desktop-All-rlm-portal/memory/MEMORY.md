@@ -1,0 +1,2 @@
+- [Git footprint: nitesh-2025 only](git-footprint-nitesh-2025-only.md) — no Claude co-author/attribution; no PRs via the vardhman-katyayani Chrome session
+- [rlm-portal deployed branch is aws-v2](rlm-portal-deployed-branch-aws-v2.md) — base hotfixes/PRs on origin/aws-v2, not aws-deployed
