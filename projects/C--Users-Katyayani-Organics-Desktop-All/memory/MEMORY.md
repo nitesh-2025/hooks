@@ -17,3 +17,4 @@
 - [Firebase to nest migration](firebase-to-nest-migration.md) — merged into query-event-opt (nest + rlm-portal + verification), not deployed; live read-only check 2026-10-03: calls RTDB refuses the service account (blocker, needs FIREBASE_RTDB_*); run swagger-check after a build
 - [all-demo workspace](all-demo-workspace.md) — at `C:\Users\Katyayani Organics\all-demo` (user home, not Downloads); Stockology node-backend (sb) + staffcore (sf); has its own CLAUDE.md
 - [nest Render beta deploy](nest-render-beta-deploy.md) — nest branch `beta` deploys on Render (Docker); silent 'Timed Out' = MongoDB unreachable with buffered logs; read `[boot +Ns]` lines (fix 7109df2); never push beta myself
+- [Vite env inlining](vite-env-inlining.md) — only plain `import.meta.env.VITE_X` is replaced per key; any other spelling ships EVERY env var; prove with a marker build before saying a key is not in the bundle
