@@ -11,4 +11,5 @@
 - [sb swagger.json: splice, never re-stringify](sb-swagger-json-additive-splice.md) — hand-formatted 2-space CRLF; additions only; payroll undocumented on purpose.
 - [sb/sf: dated branch → merge to main](sb-git-branch-and-main-merge.md) — work on e.g. 2026-10-01, "push to main" = merge + push; ticket frontend = ticket-stocklogy-frontendQ, reset local main to origin first.
 - [Ticket keys govern dept/hierarchy reads](sb-ticket-keys-govern-department-hierarchy-reads.md) — view_departments / view_hierarchy, IT_TEAM role, ship via migrate:ticket-keys, restart API.
+- [all-demo commits: gmail identity, no Claude trailer](all-demo-commits-gmail-identity-no-claude-trailer.md) — Nitesh Kumar <niteshkumar61725@gmail.com>, no Co-Authored-By/Claude-Session, no "Katyayani" text; force-push needs the user's own approval.
 - [Device allow-list: no list = desktop-only](device-allow-list-desktop-only-default.md) — sf + ticket gate by allowed_devices on login and every page; pointer/hover/touch signals beat "Desktop site" mode; never add a separate global gate.
