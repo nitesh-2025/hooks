@@ -19,3 +19,4 @@
 - [nest Render beta deploy](nest-render-beta-deploy.md) — nest branch `beta` deploys on Render (Docker); silent 'Timed Out' = MongoDB unreachable with buffered logs; read `[boot +Ns]` lines (fix 7109df2); never push beta myself
 - [Vite env inlining](vite-env-inlining.md) — only plain `import.meta.env.VITE_X` is replaced per key; any other spelling ships EVERY env var; prove with a marker build before saying a key is not in the bundle
 - [Supabase to nest migration](supabase-to-nest-migration.md) — 2026-10-03: rlm-portal + verification off browser Supabase onto nest /portal (branch `migration`, not merged/deployed); server needs SUPABASE_SERVICE_KEY + MARKETING_SUPABASE_*; body-parser trap; rlm-admin not started
+- [Wallet History (trnastion_hist)](wallet-history-trnastion-hist.md) — 2026-10-05 rlm-portal worktree branch, V3 wallet API, unknowns: response shape, CN/UTR search, team scoping
