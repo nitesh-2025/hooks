@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: ca5822c6-8603-4477-8939-7356a677e942
-  modified: 2026-10-06T13:45:41.497Z
+  modified: 2026-10-06T13:52:55.041Z
 ---
 
 Role **USR-1036 = Manager Assistant ("Verification Special")**: logs into the manager portal of the verification portal and must see exactly what their reporting manager (`agent_manager`) sees; actions stay attributed to the assistant; no active manager → own scope only.
@@ -26,5 +26,10 @@ Role **USR-1036 = Manager Assistant ("Verification Special")**: logs into the ma
 **Do NOT start ko-sales locally without Darshan's explicit OK:** it has 18 scheduled jobs and 6 queue consumers with no global off switch, and its `.env` points at the remote production MongoDB. So the ko-sales fix is unit-tested but has never run against a real request.
 
 **Still unverified (no USR-1036 test login was available):** every logged-in flow. Also: Live Agents is only an Agri Sales Hub iframe (`/reports/agent-activity/embed?token&email`) that sends the logged-in user's own email; left untouched on purpose (no local repo for the hub, so passing the manager's email could not be verified, and it is outside the must-haves). ~40 other `/manager/*` pages, HRMS and utils handlers were not reviewed. Consciously not converted in ko-sales: `dashboard.get_pipeline_funnel`, contacts b2b shortcut, `queue.gateway` admin room.
+
+**Open risks found in QA on 2026-10-06 (code-read, not confirmed on data — a read-only query on production `agents_v2` was denied by the permission system; ask Darshan before any production read):**
+- All three implementations treat `agents_v2.status` in {inactive, disabled, …} as "manager switched off", but in ko-sales that field is the PRESENCE status (enum: Taking a Quick Break / Available / Out for Lunch / In a Training / End of shift / Active / Inactive). If a working manager's presence is ever `Inactive`, their assistant silently drops to own scope in both must-have flows. Needs Darshan's decision on the rule (e.g. `is_active` only).
+- Verification Approval resolves the manager from the rlm roster (`/kyc/agent_v2` on utils). `MyLeads.tsx`'s own comment says that roster "is a filtered subset of agents_v2 and disagrees on managers", and its handler is not in the local `utilities` checkout (master), so whether it returns the assistant's and manager's rows is unverified. My Leads does not depend on the roster.
+- Whether any USR-1036 user exists in the database is unknown.
 
 **How to apply:** before touching this feature again, re-check `git status` in all three worktrees (it may have been committed or changed since). The same assistant→manager rule lives in three places (portal `teamUtils.ts`, nest `manager-assistant.ts`, ko-sales `manager-assistant.util.ts`) — change them together. Related: [[nest-access-control]], [[rlm-portal-typecheck]] (same `tsc -p tsconfig.app.json` rule applies to the verification portal; its typecheck takes about 7 minutes and has 249 errors that predate this feature; ko-sales has 6 failing jest suites and 2 `scripts/sync-counters.ts` type errors that also predate it).
