@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-06T07:22:53.320Z
 ---
 
-rlm-portal branch `trnastion_hist` (literal spelling the user gave) is cut from `origin/aws-v2` in a separate **git worktree**: `C:\Users\Katyayani Organics\Desktop\All\rlm-portal-trnastion_hist`. **Pushed 2026-10-06: `af27c03` (module), `d64ca16` (open to all roles, access fixes, sidebar switch), `f8a4779` (switch always shown), `2140c43` (refusal card names the reason)**, 4 ahead of aws-v2. No PR opened (`gh` not logged in), not merged, not deployed. Its dev server runs on :8080 since 2026-10-06 (see Env / CORS).
+rlm-portal branch `trnastion_hist` (literal spelling the user gave) is cut from `origin/aws-v2` in a separate **git worktree**: `C:\Users\Katyayani Organics\Desktop\All\rlm-portal-trnastion_hist`. **Pushed 2026-10-06: `af27c03` (module), `d64ca16` (open to all roles, access fixes, sidebar switch), `f8a4779` (switch always shown), `2140c43` (refusal card names the reason)**, 4 ahead of aws-v2. **Merged into `aws-v2` by the user on 2026-10-06 (PR #90, merge commit `be0541c`)**; the deploy workflow (`.github/workflows/main.yml`) builds from `aws-v2`, so treat it as live or about to be. Its dev server runs on :8080 since 2026-10-06 (see Env / CORS).
 
 **Why a worktree:** the main `rlm-portal` folder was on `wallet-card` with `.env` unmerged (`UU`) and a leftover `REBASE_HEAD` — the user's unfinished work, so it was not touched.
 
