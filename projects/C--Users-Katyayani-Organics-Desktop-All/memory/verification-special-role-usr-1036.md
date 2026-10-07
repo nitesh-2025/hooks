@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: ca5822c6-8603-4477-8939-7356a677e942
-  modified: 2026-10-06T13:52:55.041Z
+  modified: 2026-10-07T06:39:04.312Z
 ---
 
 Role **USR-1036 = Manager Assistant ("Verification Special")**: logs into the manager portal of the verification portal and must see exactly what their reporting manager (`agent_manager`) sees; actions stay attributed to the assistant; no active manager → own scope only.
@@ -14,10 +14,10 @@ Role **USR-1036 = Manager Assistant ("Verification Special")**: logs into the ma
 1. Agent view (after "Switch to Agent") → My Leads (`/leads`, `src/pages/agent/MyLeads.tsx`): the "My Team" agent filter and the team's leads, exactly as the manager gets them. Driven entirely by ko-sales (`GET /agents/my-scope` for the filter + scope label, `GET /leads` for rows) — no frontend change needed.
 2. Verification Approval (`/manager/kyc-approval`, `KYCApproval.tsx`): same agent filter and list as the manager. Frontend sends the manager's email as `single_agent` to nest `GET /retailers`; approve/reject go to nest `/verification/approve-kyc|reject-kyc/:id`, which has no role gate and records the token's email (the assistant).
 
-**Where the work is (as of 2026-10-06, all UNCOMMITTED, nothing pushed or deployed):**
-- Frontend worktree `Desktop\All\retailer-verification-portel-handle-special-role`, branch `handle-special-role` (upstream `origin/aws-v4`) — 25 files; core is `src/lib/teamUtils.ts` + `src/hooks/useTeamScope.ts`, 16 manager pages use it.
-- nest worktree `Desktop\All\rlm-backend-nest-verification-special`, branch `nitesh-verification-special` (upstream `origin/aws-deployed`) — `src/common/utils/manager-assistant.ts` + scope changes in `retailers.service.ts` and `retailer-alerts.service.ts`.
-- ko-sales worktree `Desktop\All\ko-sales-backend-verification-special`, branch `nitesh-verification-special` (from `origin/aws-deployed` e9164af0), created by me on 2026-10-06 — `src/common/utils/manager-assistant.util.ts` (+ spec, 13 tests) and `resolve_scope_user` wired into `agents_service.get_team_agent_ids`, `get_my_scope_agents`, `leads_service.get_leads` (global search) and `manager_report_service.build_team_report`. Scope only: `req.user` is never rewritten.
+**Where the work is (committed and pushed 2026-10-07 on branch `nitesh-special-role-usr-1036` in all three repos; NOT merged, NOT deployed; PRs not opened):**
+- Frontend worktree `Desktop\All\retailer-verification-portel-handle-special-role` (commit 572272e, branched from `handle-special-role`, which was never pushed) — 25 files; core is `src/lib/teamUtils.ts` + `src/hooks/useTeamScope.ts`, 16 manager pages use it. Deploy branch for the portal is `aws-v4`.
+- nest worktree `Desktop\All\rlm-backend-nest-verification-special` (commit 2d155bb, based on `origin/aws-deployed` 79dee21, 45 commits behind it at the time) — `src/common/utils/manager-assistant.ts` + scope changes in `retailers.service.ts` and `retailer-alerts.service.ts`.
+- ko-sales worktree `Desktop\All\ko-sales-backend-verification-special` (commit f7b4b2ba, based on `origin/aws-deployed` e9164af0) — `src/common/utils/manager-assistant.util.ts` (+ spec, 13 tests) and `resolve_scope_user` wired into `agents_service.get_team_agent_ids`, `get_my_scope_agents`, `leads_service.get_leads` (global search) and `manager_report_service.build_team_report`. Scope only: `req.user` is never rewritten.
 
 **Why ko-sales needed a change:** it had no USR-1036 anywhere, so `get_scoping_type` treated an assistant as `self`. Effects: Lead Assignment (`GET /leads`) showed only the assistant's own leads, and `GET /statistics/manager-team-report` pinned the report to the assistant's own row — that feeds Call Reporting (the manager portal landing page) and Bandwidth Detector.
 
