@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-09T12:45:51.949Z
 ---
 
-Built 2026-10-09 on branch `new-events-added-api` (portal c2c589c + review fixes 93c2b3d; nest 3068557 + f578916; all pushed, NOT deployed).
+Built 2026-10-09 on branch `new-events-added-api` (portal c2c589c → 93c2b3d → 149682e → dc39ac9 (review rounds); nest 3068557 + f578916; all pushed, NOT deployed).
 
 - agents_v2 docs carry `target: { value, period: "monthly", last_updated_at }`, always the current month (Darshan).
 - Precedence per agent (Darshan, final): HRMS Sales target → agents_v2 `target.value` → 50k/day default. If HRMS fails, show the fallback mapping at once (never pending/blank).
