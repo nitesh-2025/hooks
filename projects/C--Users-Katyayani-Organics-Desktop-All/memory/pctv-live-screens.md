@@ -20,6 +20,10 @@ PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's
 - Frontend token: `rlm_portal_auth_token` first (stale `v2_access_token`, see [[rlm-create-order-lookup]]); agent refuses to share if `auth:ok` agentId ≠ `rlm_portal_agent_id`.
 - "View Activity" → `/manager/events?agent_id=…` (TeamEvents now honours that param once the roster loads).
 
+**Side effects outside PCTV (needed by the cluster adapter):** notifications now emit before the online check (isOnline has a 1 s timeout → null), `src/tracing.ts` tells the OTel socket.io instrumentation to ignore every PCTV event (traces would otherwise store who asked/watched whom). Presence = room names per worker over `serverSideEmitWithAck('pctv:presence')`, not fetchSockets of the whole namespace (that ships every handshake incl. JWT over IPC).
+**Directory rule:** only current employees (`is_active` not false and no left/resigned/inactive status — same as the portal's `isActiveAgent`, see [[rlm-agents-v2-only]]).
+**Left for Darshan:** primary green (white text 2.8:1) is app-wide; no TURN; dashboard-role managers see only their own tree on PCTV.
+
 **Not verified:** no browser run (no real WebRTC session), no real-data query (nest .env.local now points at a non-beta DB; production reads need Darshan's OK). No TURN: networks that block direct P2P will show "Could not connect".
 
 Related: [[four-agent-review]], [[nest-access-control]], [[searchable-dropdowns]].
