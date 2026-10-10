@@ -12,7 +12,8 @@ rlm-portal `/manager/coupons/deal` → Create new now lets the operator raise de
 
 - Branch `nitesh-deal-coupon-edit-lines` from origin/aws-v2 @ a61e78f, commit ff8c4d3 (2 files: DealCoupon.tsx, coupons_v3_api.service.ts). **Local only, NOT pushed**; upstream unset on purpose (it was auto-tracking origin/aws-v2, the deploy branch).
 - Built in a worktree at `<scratchpad>/rlm-deal` because the main rlm-portal checkout keeps being switched by other sessions (was on `pctv` = aws-v2 HEAD). Vite in a worktree must be started from the LONG path (`C:\Users\Katyayani Organics\...`), not `KATYAY~1`, or main.tsx 404s.
-- Tests live only in the scratchpad: Playwright e2e vs mocked V3 (`deal-edit/e2e-deal-lines-v2.cjs`), 61/61.
+- 2026-10-10 Darshan decision (overrides spec §4 single button): **Save is its own step** — "Save N lines" under the table PATCHes; "Create coupon" is locked while anything is unsaved and only POSTs create. Plus a totals row (units, deal value Σqty×rate, at DP Σqty×DP, customer saves). Commit 7ceed3b (local, on top of ff8c4d3).
+- Tests live only in the scratchpad: Playwright e2e vs mocked V3 (`deal-edit/e2e-deal-lines-v3.cjs`), 68/68.
 - Known limitation: portal has no `coupons:update` source, so lines go read-only only after the first 403 (spec §2 wants it up front).
 
 - 2026-10-10 (user ask): rlm-portal local dev now uses BETA Stockship V3 — `VITE_COUPONS_V3_API_URL="https://beta.api.stockshipv3.ko-tech.in/api"` in the main checkout's `.env.local` (gitignored; prod value kept in a comment above it). That one var also drives V3 orders (Create Order), wallet and the V3 catalogue locally.
