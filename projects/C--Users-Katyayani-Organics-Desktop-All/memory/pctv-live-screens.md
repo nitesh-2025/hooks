@@ -24,6 +24,9 @@ PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's
 **Directory rule:** only current employees (`is_active` not false and no left/resigned/inactive status — same as the portal's `isActiveAgent`, see [[rlm-agents-v2-only]]).
 **Left for Darshan:** primary green (white text 2.8:1) is app-wide; no TURN; dashboard-role managers see only their own tree on PCTV.
 
+**Review loop (2026-10-10):** 4 rounds × 4 agents (QA, loophole, design, a11y); round 4 had no HIGH. Later decisions: presence announces are debounced 250 ms per worker; one ask per viewer+agent every 30 s even after cancel/reload (client shows "Asked a moment ago"); prune every 30 s also sends the viewer `bye forbidden`; `share:start` acks the allowed viewer ids; OTel ignore list = `PCTV_SOCKET_EVENTS` in pctv.signal.ts (add new events there); socket.io-adapter pinned 2.5.6.
+**Still open (low):** KPI counts can lag cards by up to 30 s; cooldown map per worker; reconcile/foro emits now reach all workers' clients.
+
 **Not verified:** no browser run (no real WebRTC session), no real-data query (nest .env.local now points at a non-beta DB; production reads need Darshan's OK). No TURN: networks that block direct P2P will show "Could not connect".
 
 Related: [[four-agent-review]], [[nest-access-control]], [[searchable-dropdowns]].
