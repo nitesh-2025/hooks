@@ -10,7 +10,7 @@ metadata:
 
 PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's hard rules (2026-10-10): **nothing about a session is saved anywhere, connection is peer-to-peer, no load on the server**. He also sent a mockup (header "PCTV / People & Team Visibility", 5 KPI cards Agents/Online/Busy/Offline/Unknown, toolbar search + Your team + All Status + Newest First + green "Peer-to-peer · Not recorded or stored / Live screen is shown only when you click", 5×2 agent cards with status pill, ⋮, preview, green View Live Screen + outline View Activity, numbered pager).
 
-**Where:** branch `pctv` in rlm-portal (base aws-v2 a61e78f) and rlm-backend-nest (base aws-deployed 96df0e9). Created 2026-10-10, not committed/pushed when this was written — check `git status` first.
+**Where:** branch `pctv` in rlm-portal (base aws-v2 a61e78f) and rlm-backend-nest (base aws-deployed 96df0e9). Pushed to origin 2026-10-10: nest `68e6ab2`, portal `9afdd28` (upstream set, NOT merged/deployed, no PR opened). rlm-portal `.env` watermark change was kept OUT of the commit. Agent-side header control was removed (agent shares only via the manager's ask dialog; browser's own sharing bar + Stop stay — those can't be removed).
 
 **Design decisions:**
 - On demand: a view opens only on click. Not sharing → `share:ask` → agent dialog (Share screen / Not now → `share:decline`). Agent capture is opt-in (browser picker); max 4 viewers per agent; viewer tab hidden 60 s closes views.
