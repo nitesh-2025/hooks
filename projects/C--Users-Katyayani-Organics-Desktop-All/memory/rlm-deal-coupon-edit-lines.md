@@ -15,5 +15,8 @@ rlm-portal `/manager/coupons/deal` → Create new now lets the operator raise de
 - Tests live only in the scratchpad: Playwright e2e vs mocked V3 (`deal-edit/e2e-deal-lines-v2.cjs`), 61/61.
 - Known limitation: portal has no `coupons:update` source, so lines go read-only only after the first 403 (spec §2 wants it up front).
 
+- 2026-10-10 (user ask): rlm-portal local dev now uses BETA Stockship V3 — `VITE_COUPONS_V3_API_URL="https://beta.api.stockshipv3.ko-tech.in/api"` in the main checkout's `.env.local` (gitignored; prod value kept in a comment above it). That one var also drives V3 orders (Create Order), wallet and the V3 catalogue locally.
+- Worktree gotcha: a node_modules JUNCTION shares `node_modules/.vite` with the main checkout; when both dev servers restart together (e.g. an .env.local change) they clobber each other → "Cannot read properties of null (reading 'useEffect')". Run the worktree server with its own cacheDir (wrapper config `scratchpad/deal-edit/vite.worktree.config.mjs`).
+
 **Why:** a 4-agent review + re-verify round found 9+ real bugs a passing first e2e missed (RTK `data` keeps the previous arg's result → use `currentData`; identical refetch returns the same object → discard must reset state itself; `digitsOnly` turned "50.00" into 5000; switching cohort mid-save re-targets the PATCH; busy must cover every awaited step incl. lookups).
 **How to apply:** for any "edit then save" UI over RTK Query, check those four traps first; never base a worktree branch on origin/<deploy> without unsetting upstream. Related: [[rlm-create-order-lookup]], [[four-agent-review]].
