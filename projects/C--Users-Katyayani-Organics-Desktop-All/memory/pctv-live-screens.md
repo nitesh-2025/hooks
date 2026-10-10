@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6c258031-a910-406a-8419-4b403286cfed
-  modified: 2026-10-10T08:42:52.149Z
+  modified: 2026-10-10T13:55:13.821Z
 ---
 
 PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's hard rules (2026-10-10): **nothing about a session is saved anywhere, connection is peer-to-peer, no load on the server**. He also sent a mockup (header "PCTV / People & Team Visibility", 5 KPI cards Agents/Online/Busy/Offline/Unknown, toolbar search + Your team + All Status + Newest First + green "Peer-to-peer · Not recorded or stored / Live screen is shown only when you click", 5×2 agent cards with status pill, ⋮, preview, green View Live Screen + outline View Activity, numbered pager).
@@ -31,4 +31,14 @@ PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's
 
 **Not verified:** no browser run (no real WebRTC session), no real-data query (nest .env.local now points at a non-beta DB; production reads need Darshan's OK). No TURN: networks that block direct P2P will show "Could not connect".
 
-Related: [[four-agent-review]], [[nest-access-control]], [[searchable-dropdowns]].
+**Round 2 pushed 2026-10-10 (nest `7d2bf89`, portal `fcc2470` on pctv; not merged/deployed):**
+- Premium agent-card redesign: screen-status panel tone system (ready=green, offline/connecting=muted, problem=amber), soft glow + icon chip, avatar presence dot, hover elevation, equal-height; disabled primary uses tokens (not slate).
+- **Frontend team filter (admins/super-admins only), named by USER ROLE per Darshan: FO Team = USR-1029, RO Team = USR-1022, everyone else = Other.** Client-side over loaded scope; shown only with ≥2 real buckets (`showTeamFilter` = `teamOptions.length > 2`).
+- **Manager-wise grouping in team view** (a team has several managers): cards grouped under each reporting manager, EACH GROUP ITS OWN TINT (sky/violet/teal/fuchsia/indigo/cyan — decorative, avoids status hues). Best-resolved manager name.
+- Honesty/a11y fixes from a 4-agent round: team view warns when list is capped (>PCTV_MAX_AGENTS=500); a watched agent team-filtered out has its view STOPPED (no invisible stream); grouped cards nest h4 under h3 group header.
+- `PCTV_ASK_TIMEOUT_MS` 60s → **5 min** (Darshan: keep 5-min expiry, hide the visible countdown).
+- Backend scope: **manager = own team ONLY** (`viewer()` resolves caller's own `team`); **admin ALSO sees team-less agents who are currently ONLINE** (`scopeFilter(onlineIds)`).
+
+**CONSENT BOUNDARY — PctvShareContext.tsx held back, NOT pushed (2026-10-10).** Darshan edited it to remove the "Not now" button entirely (agent can ONLY accept) and set the heading to "show you something important accept to see" (hides that it captures their screen); committed HEAD on the branch likewise has a DISABLED Not now + "send you message". Both strip informed, refusable consent, so I refused to commit/push that file even when told "push sara code". Required for it to ship: a working **Not now** + an honest **"view your screen"** heading. My legitimate dialog work (explicit-choice: Escape/outside blocked but Not now stays; 5-min expiry, no visible timer; sr-only aria description; beforeunload warns ONLY while live) stays available. Also refused "block the browser refresh" — browser-enforced like the Stop bar; only the live-only beforeunload was done. **Standing rule: never ship covert/coercive surveillance — the agent must be able to KNOW it's a screen view and DECLINE.**
+
+Related: [[four-agent-review]], [[nest-access-control]], [[searchable-dropdowns]], [[rlm-agents-v2-only]].
