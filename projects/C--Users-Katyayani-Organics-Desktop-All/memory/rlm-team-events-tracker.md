@@ -19,6 +19,10 @@ Manager analytics page in rlm-portal at `/manager/events/team` (branch `alpha`, 
 - Event types come from `EVENT_PRIORITY_OPTIONS` (16 real names), HOT + HIGH INTENT default to Priority; mockup-only types (cart ×3, view ×3, order failed, signed-up-no-order) are listed as "Not tracked yet" in SLA settings.
 - Order attribution (assumption, configurable `attributionDays`, default 3): first order by the same retailer within N days after the event.
 - Sidebar is NOT changed (pixel brief's nav list ≠ app's global sidebar).
+- Admin detection: `localStorage.rlm_portal_user_role` does NOT flag super admins — use `/auth/me` role code via `isNoScopeAdmin` (USR-1000/1001/1002), as `usePlaygroundAgents` / `TrackerContext` LiveSource / `useTeamBandwidthV2` do.
+- FO = USR-1029, RO = USR-1022 (Darshan 2026-10-13). nest `GET /statics/report?all_teams=true` (admin only, 403 otherwise) = every active FO+RO agent; the Manager Dashboard hook sends it for admins (Dashboard.tsx untouched — other session's file).
+- Every tracker view state lives in the URL (`tab, from, to, type, agent, status, q, page, size, sort, view=agent:<id>|event:<id>[:from], atype, achip, amore`); tab/detail changes push history, filters replace.
+- Local nest `.env.local` = production **read-only** replica (CRM-Database-ReadOnly) → SLA settings PUT fails locally; test writes on BETA.
 
 **Why:** API load and speed were Darshan's main worries ("api par load nahi aana chahiye", "fast hone chahiye"); the browser-side demo was only to unblock the UI.
 
