@@ -5,15 +5,18 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: 98e51c78-0b81-4cc8-8f28-ef42718be40d
-  modified: 2026-10-13T06:00:58.263Z
+  modified: 2026-10-13T06:40:17.898Z
 ---
 
 Toolbar / filter rows (rlm-portal, and any app UI):
 - **One row at every width.** Never `flex-wrap` controls onto a second line and never let them run off-screen; whatever does not fit moves into a ⋮ (MoreVertical, outline icon button) at the END of that same row. "Keep full responsive with 3 dot properly."
-- **Columns and Filters live inside the ⋮ by default, at every screen size.** Filter content (e.g. RPS slider) goes straight inside the ⋮ panel — no big expandable card under the row.
+- **Columns live inside the ⋮ by default, at every screen size.** On the EVENTS pages the Filters (RPS slider) also live in the ⋮, straight inside the panel — no big expandable card under the row.
+- **Exception (Darshan 2026-10-13): on /manager/retailers and agent My Retailers the advanced Filter button is NOT moved into the ⋮** — it stays in the row where it was (OverflowToolbar item `pinned: true`, original button look and order).
 - The ⋮ belongs to the row whose controls it holds (status tabs ⋮ stays in the header row next to All Agents; filter ⋮ in the filter row). Darshan rejected moving the header ⋮ into the filter row.
 - One refresh control only: the ↺ in the filter row does the data refetch; no separate header "Refresh" button.
-- Shared building block: `src/components/common/OverflowToolbar.tsx` (measured fit, `menuOnly`, `priority`, `active` dot; items stay mounted invisible so e.g. ColumnVisibilityToggle still loads prefs — panel copy gets `syncPrefs={false}`).
+- Shared building block: `src/components/common/OverflowToolbar.tsx` (measured fit, `menuOnly`, `pinned`, `priority`, `active` dot; items stay mounted invisible so e.g. ColumnVisibilityToggle still loads prefs — panel copy gets `syncPrefs={false}`).
+- Manager and agent sides stay identical (events pages share `src/components/events/*`; retailers pages mirror each other). Card grids inside filter panels: width-driven `grid-cols-[repeat(auto-fill,minmax(…,1fr))]`, not viewport breakpoints (they ignore the open sidebar).
+- Gotcha: shadcn `Input` base has `md:text-sm`, which beats a plain `text-[11px]` on desktop (tailwind-merge keeps both) — add `md:text-[11px]` too; native date inputs also need `min-w-0` inside flex rows.
 
 Metric cards: decorative background waves (`src/components/common/TileWaves.tsx`) — **static** (Darshan disliked the breathing animation), height **by the card's value** vs the largest sibling card. Compact card height (px-4 py-2.5, "Coming Soon" inline with the label).
 
