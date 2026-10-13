@@ -23,6 +23,7 @@ Manager analytics page in rlm-portal at `/manager/events/team` (branch `alpha`, 
 - FO = USR-1029, RO = USR-1022 (Darshan 2026-10-13). nest `GET /statics/report?all_teams=true` (admin only, 403 otherwise) = every active FO+RO agent; the Manager Dashboard hook sends it for admins (Dashboard.tsx untouched — other session's file).
 - Event type filter = the shared `EventPriorityFilter` (tier groups, P1…P16), same as My Team Events. No order line above the table (removed on request); Date/Time header cycles priority → newest → oldest.
 - Table order default = `priority` (one row per retailer, RPS desc → type rank → newest, exactly like My Team Events; `/events` `total` = retailers, analytics = every event). Table cells copied from My Team Events (PII/KP copy icons, App Version pill, RPS bar, Last Note). Agent filter = roster only (active FO/RO); analytics-only owners resolve names in rows only.
+- Logic info (ℹ️ "How this page works" guide + every info button) is ADMIN / SUPER ADMIN ONLY (Darshan 2026-10-13); managers/agents never see it. Agent My Events + manager My Team Events show the real SLA column via `GET …/team-tracker/sla-status?ids=` (same rules/settings), no rules popover there.
 - Every tracker view state lives in the URL (`tab, from, to, type, agent, status, q, page, size, sort, view=agent:<id>|event:<id>[:from], atype, achip, amore`); tab/detail changes push history, filters replace.
 - Local nest `.env.local` = production **read-only** replica (CRM-Database-ReadOnly) → SLA settings PUT fails locally; test writes on BETA.
 
