@@ -13,14 +13,15 @@ Manager analytics page in rlm-portal at `/manager/events/team` (branch `alpha`, 
 **Decisions (Darshan, 2026-10-13):**
 - Real data first. Analytics = server-side cached snapshot per (scope, range, settingsVersion), aggregates only (`GET /retailer-events/team-tracker/analytics`); events list paged + filtered on the server (`…/events`). Never ship the whole range to the browser.
 - Scoping on the server: manager = own team only (client `manager_id` ≠ own → 403), admin = all teams (may pass `manager_id`/`agent_id`), agent → 403.
-- Date range max **31 days** (validated server + clamped client with a toast). Default = **1 week** (today + 6 days before); drop to 1 day if the 7-day BETA timing is heavy.
+- Date range max **31 days** (validated server + clamped client with a toast). Default = **today only** (Darshan 2026-10-13, changed from 1 week the same day).
 - Overview list = tracker table (image), NOT the My Team Events table (asked 2026-10-13, chose tracker table).
 - Demo data stays only as an explicit mode `?trackerData=demo` (`?trackerDemo=error` simulates a failed load); demo Call/Message/Copy are disabled because random numbers may belong to real people.
-- Event types come from `EVENT_PRIORITY_OPTIONS` (16 real names), HOT + HIGH INTENT default to Priority; mockup-only types (cart ×3, view ×3, order failed, signed-up-no-order) are listed as "Not tracked yet" in SLA settings.
+- Event types come from `EVENT_PRIORITY_OPTIONS` (16 real names), HOT + HIGH INTENT default to Priority; mockup-only types (cart ×3, view ×3, order failed, signed-up-no-order) are listed as "Not tracked yet" in SLA settings. "Order Placed" (also stored as "Purchase") IS tracked since 2026-10-13 as a secondary type, rank 16.
 - Order attribution (assumption, configurable `attributionDays`, default 3): first order by the same retailer within N days after the event.
 - Sidebar is NOT changed (pixel brief's nav list ≠ app's global sidebar).
 - Admin detection: `localStorage.rlm_portal_user_role` does NOT flag super admins — use `/auth/me` role code via `isNoScopeAdmin` (USR-1000/1001/1002), as `usePlaygroundAgents` / `TrackerContext` LiveSource / `useTeamBandwidthV2` do.
 - FO = USR-1029, RO = USR-1022 (Darshan 2026-10-13). nest `GET /statics/report?all_teams=true` (admin only, 403 otherwise) = every active FO+RO agent; the Manager Dashboard hook sends it for admins (Dashboard.tsx untouched — other session's file).
+- Event type filter = the shared `EventPriorityFilter` (tier groups, P1…P16), same as My Team Events. No order line above the table (removed on request); Date/Time header cycles priority → newest → oldest.
 - Table order default = `priority` (one row per retailer, RPS desc → type rank → newest, exactly like My Team Events; `/events` `total` = retailers, analytics = every event). Table cells copied from My Team Events (PII/KP copy icons, App Version pill, RPS bar, Last Note). Agent filter = roster only (active FO/RO); analytics-only owners resolve names in rows only.
 - Every tracker view state lives in the URL (`tab, from, to, type, agent, status, q, page, size, sort, view=agent:<id>|event:<id>[:from], atype, achip, amore`); tab/detail changes push history, filters replace.
 - Local nest `.env.local` = production **read-only** replica (CRM-Database-ReadOnly) → SLA settings PUT fails locally; test writes on BETA.
