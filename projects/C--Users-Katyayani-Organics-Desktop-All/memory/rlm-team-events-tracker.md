@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-13T07:50:01.461Z
 ---
 
-Manager analytics page in rlm-portal at `/manager/events/team` (branch `alpha`, uncommitted as of 2026-10-13), built from Darshan's mockup `Downloads/RLM-Events-Tracker.html`, then re-skinned to the reference screenshot (6 KPI cards, underline tabs Overview / Event Types / Agents / Pending & SLA / Day by Day, 3 chart cards, toolbar, rich events table with numbered pagination). Spec: `rlm-portal/docs/TEAM_EVENTS_TRACKER_REQUIREMENTS.md` (§21 = UI spec). Code: `src/components/team-tracker/*`, `src/lib/teamTracker/*` (contract: `types.ts`, `rules.ts`, `format.ts`, `eventTypes.ts`, `apiTypes.ts`), API service `src/redux_v2/apis/team_tracker_api.service.ts`.
+Manager analytics page in rlm-portal at `/manager/events/team` (branch `alpha`; pushed 2026-10-13: portal 933530c = first commit on the new remote branch `alpha`, nest 7916c29 on `alpha`; not deployed), built from Darshan's mockup `Downloads/RLM-Events-Tracker.html`, then re-skinned to the reference screenshot (6 KPI cards, underline tabs Overview / Event Types / Agents / Pending & SLA / Day by Day, 3 chart cards, toolbar, rich events table with numbered pagination). Spec: `rlm-portal/docs/TEAM_EVENTS_TRACKER_REQUIREMENTS.md` (§21 = UI spec). Code: `src/components/team-tracker/*`, `src/lib/teamTracker/*` (contract: `types.ts`, `rules.ts`, `format.ts`, `eventTypes.ts`, `apiTypes.ts`), API service `src/redux_v2/apis/team_tracker_api.service.ts`.
 
 **Decisions (Darshan, 2026-10-13):**
 - Real data first. Analytics = server-side cached snapshot per (scope, range, settingsVersion), aggregates only (`GET /retailer-events/team-tracker/analytics`); events list paged + filtered on the server (`…/events`). Never ship the whole range to the browser.
