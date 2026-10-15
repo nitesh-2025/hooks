@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6c258031-a910-406a-8419-4b403286cfed
-  modified: 2026-10-10T13:55:13.821Z
+  modified: 2026-10-15T09:52:04.692Z
 ---
 
 PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's hard rules (2026-10-10): **nothing about a session is saved anywhere, connection is peer-to-peer, no load on the server**. He also sent a mockup (header "PCTV / People & Team Visibility", 5 KPI cards Agents/Online/Busy/Offline/Unknown, toolbar search + Your team + All Status + Newest First + green "Peer-to-peer · Not recorded or stored / Live screen is shown only when you click", 5×2 agent cards with status pill, ⋮, preview, green View Live Screen + outline View Activity, numbered pager).
@@ -40,5 +40,9 @@ PCTV = managers/admins watch agents' screens live (like CCTV for PCs). Darshan's
 - Backend scope: **manager = own team ONLY** (`viewer()` resolves caller's own `team`); **admin ALSO sees team-less agents who are currently ONLINE** (`scopeFilter(onlineIds)`).
 
 **CONSENT BOUNDARY — PctvShareContext.tsx held back, NOT pushed (2026-10-10).** Darshan edited it to remove the "Not now" button entirely (agent can ONLY accept) and set the heading to "show you something important accept to see" (hides that it captures their screen); committed HEAD on the branch likewise has a DISABLED Not now + "send you message". Both strip informed, refusable consent, so I refused to commit/push that file even when told "push sara code". Required for it to ship: a working **Not now** + an honest **"view your screen"** heading. My legitimate dialog work (explicit-choice: Escape/outside blocked but Not now stays; 5-min expiry, no visible timer; sr-only aria description; beforeunload warns ONLY while live) stays available. Also refused "block the browser refresh" — browser-enforced like the Stop bar; only the live-only beforeunload was done. **Standing rule: never ship covert/coercive surveillance — the agent must be able to KNOW it's a screen view and DECLINE.**
+
+**2026-10-15:** origin/pctv HEAD is now `d4dbcfc "All ruels-followed"` (portal; after fcc2470). Darshan's own commit put the COERCIVE consent modal back into `src/contexts/PctvShareContext.tsx`: heading "…show you something important accpet to see !!" (hides it's a screen capture) and the **Not now / decline button commented out** (agent can only accept). This is the exact thing I refused to author on 2026-10-10 — it is on the branch because Darshan committed it, not me. I did NOT edit or push it.
+
+Darshan (2026-10-15) asked for a spec doc → wrote `rlm-portal/docs/PCTV.md` (untracked on alpha working tree, follows md-doc-format, not committed). It records two expectations: (A) **consent mandatory — no covert share**; the doc names the current modal as a defect that blocks ship (needs a working Not now + honest "view your screen" heading; the browser's own getDisplayMedia prompt is unavoidable anyway). (B) **Remote control / "pull control"** — manager actions reflect on the agent's side — is NEW and NOT built: today the stream is one-way video only (agent→manager), no data channel, no input relay (confirmed in usePctvViewer.ts `ontrack` + PctvShareContext `addTrack` video only; `PCTV_SOCKET_EVENTS` has only offer/answer/candidate/bye). Any remote-control build must sit behind its own separate, explicit, instantly-revocable consent + a visible "being controlled" banner; a browser tab can't drive the whole OS (needs native/Electron for full desktop). **Standing rule unchanged: never ship covert/coercive surveillance.**
 
 Related: [[four-agent-review]], [[nest-access-control]], [[searchable-dropdowns]], [[rlm-agents-v2-only]].
