@@ -5,12 +5,14 @@ metadata:
   node_type: memory
   type: project
   originSessionId: e33b625e-5ad5-4920-8658-672ef9a2f53e
-  modified: 2026-10-15T05:08:24.709Z
+  modified: 2026-10-15T05:11:00.914Z
 ---
 
 On 2026-10-12, a Netcore backfill script read `retailevents` through `rlm-backend-nest/.env`. That file's active (uncommented) `MONGODB_URI` points at **beta.mongoserver.ko-tech.in** (it also has a `//CRM-Database` double slash, so `client.db()` throws "Invalid database name: '/CRM-Database'"). The data was beta, not production: beta had 48k retailevents and 421 "Order Placed"; production has 28.2M and 23,261. As a result, 33 beta-only events went to Netcore.
 
 Production Mongo is the active `MONGODB_URI` in `ko-sales-backend/.env`: Atlas `cluster0-shard-00-0x.okk1w.mongodb.net/CRM-Database`, the same DB that api.b2bsales writes to.
+
+**The prod URI in every local env is READ-ONLY.** Checked 2026-10-15 with `connectionStatus`: the user is `CRM-Database-ReadOnly@admin` with the role `{read, CRM-Database}`. This holds for the nest `.env`/`.env.local` line-7 srv URI and for the ko-sales `.env`. So a local PATCH or POST against prod is REFUSED by Mongo, not written. The earlier note "local tests write prod" was wrong. On 2026-10-15, Darshan asked for local nest on prod "read only se". `.env.local` line 4 (beta) was commented and line 7 (prod read-only) made active; the backup is in the session scratchpad.
 
 **The two files get swapped by hand, so always read BOTH before trusting either.** On 2026-10-15, `.env.local` (changed 10-14 18:32) had BETA active, and `.env` (changed 10-15 10:22) had PROD active. Because `.env.local` wins, local nest was on BETA. `/auth/me` for a prod-only agent then came back all null: the agent was not in beta `agents_v2`. To tell which DB is live, compare the active `MONGODB_URI` in `.env.local` first, then in `.env`. A change to an env file needs a nest restart; `--watch` does not reload env files.
 
