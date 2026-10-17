@@ -22,7 +22,13 @@ metadata:
 - **Verification portal** (`retailer-verification-portel`): branch `nitesh-success-stories` (061b4d2 is the first port), built by an agent in a scratchpad worktree from origin/main.
   - Its token is `sso_token` and its base URL is `VITE_BACKEND_URL`.
   - 2762af0 = synced to RLM 131dbe4, with a manager route + FMSidebar entry (the owner wants both sides). 14869cc = synced to f70027b (final). Merges clean into main; the worktree is removed.
-  - No PR.
+  - No PR for that main-based branch. The owner then asked for an **aws-v4** line: branch `nitesh-ss-announcements-aws-v4` (cut from origin/aws-v4).
+    - It carries Success Stories, the RLM Announcements port and the header look.
+    - **PR #123 → aws-v4**, head 969885d, mergeable/clean, not merged.
+    - Preview: worktree `scratchpad/vp-ss-aws-v4`, served on :8006 via an untracked `vite.preview.config.ts` (own cacheDir). Never commit that file.
+- **Header look (owner, both portals):**
+  - Bell + megaphone: a TRANSPARENT circle with an inset shadow (`shadow-[inset_0_1px_3px_rgb(0_0_0/0.15)]`). The owner rejected the green circle and the grey fill.
+  - The RLM Android/iPhone version pills use the same capsule: no border, h-9.
 
 **API:** ko-sales `/success-stories/testimonials?limit=500`, `/reviews?limit=2000`, and `/product?search=SKU`.
 - The UI accepts a product only when its SKU is an exact match.
