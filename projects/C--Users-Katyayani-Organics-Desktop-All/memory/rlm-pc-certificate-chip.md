@@ -1,14 +1,14 @@
 ---
 name: rlm-pc-certificate-chip
-description: "2026-10-17 rlm-portal PC / Form-'O' status chip on Retailer Details + Certificate Request retailer filter + phone-out-of-URL; on local alpha 1c2bc4a, not pushed to alpha"
+description: "2026-10-17 rlm-portal PC / Form-'O' status chip on Retailer Details + Certificate Request retailer filter + phone-out-of-URL; pushed to origin/alpha as one squashed commit 0d91723, not deployed"
 metadata:
   node_type: memory
   type: project
   originSessionId: bfc8429b-a706-46e6-b5af-f617a33b203a
-  modified: 2026-10-17T06:31:47.169Z
+  modified: 2026-10-17T06:35:39.990Z
 ---
 
-rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Fixed in d848caa + b360b5b; phone-URL change 1c2bc4a. All three fast-forwarded into the MAIN checkout's local `alpha` (serves localhost:8080) and pushed only as branch `nitesh-pc-tag-pii` — alpha itself not pushed, not deployed.
+rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Darshan asked to push: 2304783 + the fixes were squashed into ONE commit 0d91723 on origin/alpha (2026-10-17, not deployed; aws-v2 is the deploy branch). Step-by-step history stays on origin/nitesh-pc-tag-pii.
 
 - `src/components/retailer/PcCertificateChips.tsx`, right after WalletBalanceChip. Shares the Certificate Request page's `useGetAllPCCertificatesQuery({limit:500})` cache; match = phone last-10 OR pii_id (Darshan: that page's data is keyed by phone).
 - Darshan rules: no chip at all when the retailer has no request (no "No PC", no loading/error chip); the phone must not show in URLs.
