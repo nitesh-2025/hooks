@@ -5,10 +5,15 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 206f57a7-d901-43d7-9de5-764c9fc75df2
-  modified: 2026-10-17T10:11:18.213Z
+  modified: 2026-10-17T10:26:21.436Z
 ---
 
-On 2026-10-17, rlm-portal branch `nitesh-announcements` (cut from alpha 0d91723, 8 commits ending 4cc33cd) added an Announcements feature. It was **pushed to origin** the same day and is not merged. A PR into alpha was prefilled in the browser but not created, because gh is not logged in. It was ported from sales-app (b2b) `origin/aws-deployed`. Data comes from ko-sales `/announcements` (`for_me=true`). The ko-sales deploy branch is `origin/aws-deployed`; main and nitesh-nitu are stale.
+On 2026-10-17 rlm-portal got an Announcements feature. It lives on two branches, both pushed and neither merged.
+- **`nitesh-announcements`** is one clean commit, **32b8cc7**, on top of **aws-v2** f6cd2eb. It holds only the 18 announcement files. It is **PR #113 into aws-v2**, which is mergeable/clean and has a full description.
+- **`nitesh-announcements-alpha`** is the original alpha-based history, 11 commits ending a212121. It is for a later PR into alpha.
+- The main checkout is on `nitesh-announcements-alpha`.
+- The first version of PR #113 had conflicts, because the alpha-based branch pulled other alpha work into aws-v2. Fix used: back up the branch, re-apply the files onto aws-v2, then force-with-lease.
+- **Any further change must go into BOTH branches.** The 5 existing files it touches are identical on alpha and aws-v2. It was ported from sales-app (b2b) `origin/aws-deployed`. Data comes from ko-sales `/announcements` (`for_me=true`). The ko-sales deploy branch is `origin/aws-deployed`; main and nitesh-nitu are stale.
 
 Owner rules (Darshan, 2026-10-17):
 - Use the **same rules as sales-app**: every unread announcement opens the full viewer by itself once per tab, in the order **Urgent → Important → Normal**, latest first within each. No toast. Lists follow the same order.
