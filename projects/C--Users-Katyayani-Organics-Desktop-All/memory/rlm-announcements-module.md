@@ -22,6 +22,7 @@ Owner rules (Darshan, 2026-10-17):
 - FM/Manager can create (`role !== 'agent'`). Agents and FMs can see.
 - Colours use rlm theme tokens only. The sidebar row shows the unread **count only, with no NEW badge**.
 - **Hero colour follows priority**: Normal is the green gradient, Important is warning amber, Urgent is destructive red. There is also a priority edge on the card.
+- **Re-login re-alerts** (owner, 2026-10-17): after logout and login, every still-unread announcement opens by itself again, even in the same tab. `reset_announcement_alerts()` in announcementMeta.ts clears the sessionStorage `rlm_alerted_announcements:*` keys on logout (AuthContext), on SSO login (Login.tsx) and on an embed ?token= change (App.tsx). Commits: alpha 2850432, aws-v2 f1ed01c.
 - An **author never gets their own post as an alert** (no auto-open, badge or count). It still lists under "Created by me".
 - Order is Urgent > Important > Normal, with latest first inside each group. If the owner asks for pure latest-first, that is a one-line change.
 - The **spotlight is an embla carousel** of all unread announcements. It auto-advances every 6s and pauses on hover, focus or a hidden tab, with a Pause/Play button and no autoplay under reduced motion.
