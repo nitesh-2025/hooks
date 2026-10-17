@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-17T06:35:39.990Z
 ---
 
-rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Darshan asked to push: 2304783 + the fixes were squashed into ONE commit 0d91723 on origin/alpha (2026-10-17, not deployed; aws-v2 is the deploy branch). Step-by-step history stays on origin/nitesh-pc-tag-pii.
+rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Darshan asked to push: 2304783 + the fixes were squashed into ONE commit 0d91723 on origin/alpha (2026-10-17, not deployed; aws-v2 is the deploy branch). Step-by-step history stays on origin/nitesh-pc-tag-pii. For aws-v2: branch `nitesh-pc-chip-aws-v2` (0703190, fresh from aws-v2, same change re-applied, tsc = aws-v2 baseline, build ok) pushed 2026-10-17; PR page opened prefilled in Darshan's browser — he clicks Create (gh not logged in). Not merged/deployed as of then.
 
 - `src/components/retailer/PcCertificateChips.tsx`, right after WalletBalanceChip. Shares the Certificate Request page's `useGetAllPCCertificatesQuery({limit:500})` cache; match = phone last-10 OR pii_id (Darshan: that page's data is keyed by phone).
 - Darshan rules: no chip at all when the retailer has no request (no "No PC", no loading/error chip); the phone must not show in URLs.
