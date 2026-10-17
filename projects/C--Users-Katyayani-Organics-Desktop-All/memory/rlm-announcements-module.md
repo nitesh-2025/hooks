@@ -5,10 +5,10 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 206f57a7-d901-43d7-9de5-764c9fc75df2
-  modified: 2026-10-17T09:33:41.575Z
+  modified: 2026-10-17T09:37:47.132Z
 ---
 
-On 2026-10-17, rlm-portal branch `nitesh-announcements` (cut from alpha 0d91723, 9 commits ending 4cc33cd, **not pushed**, not merged) added an Announcements feature. It was ported from sales-app (b2b) `origin/aws-deployed`. Data comes from ko-sales `/announcements` (`for_me=true`). The ko-sales deploy branch is `origin/aws-deployed`; main and nitesh-nitu are stale.
+On 2026-10-17, rlm-portal branch `nitesh-announcements` (cut from alpha 0d91723, 8 commits ending 4cc33cd) added an Announcements feature. It was **pushed to origin** the same day and is not merged. A PR into alpha was prefilled in the browser but not created, because gh is not logged in. It was ported from sales-app (b2b) `origin/aws-deployed`. Data comes from ko-sales `/announcements` (`for_me=true`). The ko-sales deploy branch is `origin/aws-deployed`; main and nitesh-nitu are stale.
 
 Owner rules (Darshan, 2026-10-17):
 - Use the **same rules as sales-app**: every unread announcement opens the full viewer by itself once per tab, in the order **Urgent → Important → Normal**, latest first within each. No toast. Lists follow the same order.
