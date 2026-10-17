@@ -17,11 +17,11 @@ metadata:
   - fc51e9a — owner removed banner/header, plus fixes from the 10-agent review.
   - 131dbe4 — mask precision and focus.
   - f70027b — tabs container query, icon-only FilterX.
-- **`nitesh-announcements`** (aws-v2, PR #113): d87a068 → 66884be → d27ca5a → 6cbf24b, same content.
+- **`nitesh-announcements`** (aws-v2, PR #113): d87a068 → 66884be → d27ca5a → 6cbf24b, same content. PR #113's title and body were updated on 2026-10-17 to cover Announcements + Success Stories; it is mergeable/clean and not merged.
 - Any change goes to BOTH branches. The 11 files are identical on both, so a `git checkout <alpha-commit> -- files` in a temp worktree is safe.
 - **Verification portal** (`retailer-verification-portel`): branch `nitesh-success-stories` (061b4d2 is the first port), built by an agent in a scratchpad worktree from origin/main.
   - Its token is `sso_token` and its base URL is `VITE_BACKEND_URL`.
-  - 2762af0 = synced to RLM 131dbe4, with a manager route + FMSidebar entry (the owner wants both sides). Last sync to f70027b followed.
+  - 2762af0 = synced to RLM 131dbe4, with a manager route + FMSidebar entry (the owner wants both sides). 14869cc = synced to f70027b (final). Merges clean into main; the worktree is removed.
   - No PR.
 
 **API:** ko-sales `/success-stories/testimonials?limit=500`, `/reviews?limit=2000`, and `/product?search=SKU`.
