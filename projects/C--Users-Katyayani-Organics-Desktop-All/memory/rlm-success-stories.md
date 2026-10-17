@@ -15,11 +15,13 @@ metadata:
   - 35b1d89 — first version.
   - 9b695b5 — hero + masked phone.
   - fc51e9a — owner removed banner/header, plus fixes from the 10-agent review.
-- **`nitesh-announcements`** (aws-v2, PR #113): d87a068 + 66884be, same content.
+  - 131dbe4 — mask precision and focus.
+  - f70027b — tabs container query, icon-only FilterX.
+- **`nitesh-announcements`** (aws-v2, PR #113): d87a068 → 66884be → d27ca5a → 6cbf24b, same content.
 - Any change goes to BOTH branches. The 11 files are identical on both, so a `git checkout <alpha-commit> -- files` in a temp worktree is safe.
 - **Verification portal** (`retailer-verification-portel`): branch `nitesh-success-stories` (061b4d2 is the first port), built by an agent in a scratchpad worktree from origin/main.
   - Its token is `sso_token` and its base URL is `VITE_BACKEND_URL`.
-  - Managers had no route there; the owner wants both sides, so a sync to fc51e9a was requested.
+  - 2762af0 = synced to RLM 131dbe4, with a manager route + FMSidebar entry (the owner wants both sides). Last sync to f70027b followed.
   - No PR.
 
 **API:** ko-sales `/success-stories/testimonials?limit=500`, `/reviews?limit=2000`, and `/product?search=SKU`.
@@ -34,6 +36,7 @@ metadata:
   - No tel: links. The phone is never put in share text.
 - **Banner:** the owner asked for an animated SVG hero with a glass panel, then said "hata hi do". There is no banner and no visible page header (breadcrumb/title); only an sr-only h1. The page starts at the filter row.
   - Don't re-add these without asking.
+- **Phone mask regex:** Indian mobiles only, Latin + Devanagari digits, NO lookbehind — the api file is in the main bundle and old Safari crashes on a lookbehind.
 - **Spacing:** keep vertical space tight. The owner complained about gaps 3 times: root `space-y-3`, h1 inside the toolbar wrapper.
 - **Behaviour:**
   - The overview is carousels.
