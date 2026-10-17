@@ -25,6 +25,10 @@ metadata:
   - No PR for that main-based branch. The owner then asked for an **aws-v4** line: branch `nitesh-ss-announcements-aws-v4` (cut from origin/aws-v4).
     - It carries Success Stories, the RLM Announcements port and the header look.
     - **PR #123 → aws-v4**, head 969885d, mergeable/clean, not merged.
+    - **Fork line** (`fork` remote = nitesh-2025/beta-retailer-verification-portel, base `nitesh-aws-v4`):
+      - PR #44 (org branch → fork) could not merge. aws-v4 has 6 commits the fork lacks, and the fork has NO Supabase in the browser (nest /portal migration).
+      - Replaced by fork branch `nitesh-ss-announcements-beta` (0496f14), re-applied onto nitesh-aws-v4 with Announcements realtime removed (poll + refetchOnFocus). This is **PR #45**: mergeable, Vercel green. #44 is closed with a link.
+      - Never merge the fork base into the org branch: it is also #123's head.
     - Preview: worktree `scratchpad/vp-ss-aws-v4`, served on :8006 via an untracked `vite.preview.config.ts` (own cacheDir). Never commit that file.
 - **Header look (owner, both portals):**
   - Bell + megaphone: a TRANSPARENT circle with an inset shadow (`shadow-[inset_0_1px_3px_rgb(0_0_0/0.15)]`). The owner rejected the green circle and the grey fill.
