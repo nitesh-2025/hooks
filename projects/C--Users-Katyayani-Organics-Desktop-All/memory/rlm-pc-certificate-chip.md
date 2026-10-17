@@ -8,7 +8,13 @@ metadata:
   modified: 2026-10-17T06:35:39.990Z
 ---
 
-rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Darshan asked to push: 2304783 + the fixes were squashed into ONE commit 0d91723 on origin/alpha (2026-10-17, not deployed; aws-v2 is the deploy branch). Step-by-step history stays on origin/nitesh-pc-tag-pii. For aws-v2: branch `nitesh-pc-chip-aws-v2` (0703190, fresh from aws-v2, same change re-applied, tsc = aws-v2 baseline, build ok) pushed 2026-10-17; PR page opened prefilled in Darshan's browser — he clicks Create (gh not logged in). Not merged/deployed as of then.
+rlm-portal, 2026-10-17. First version (2304783) never rendered: it read `items` but GET /agronomy/principal-certificates (sales-operation-backend, FastAPI, spec at /openapi.json) returns `certificates`. Darshan asked to push: 2304783 + the fixes were squashed into ONE commit 0d91723 on origin/alpha (2026-10-17, not deployed; aws-v2 is the deploy branch). Step-by-step history stays on origin/nitesh-pc-tag-pii. For aws-v2 the PR branch is `nitesh-pc-chip-only-aws-v2` (0301688): PC module only, 4 files, fresh from aws-v2, tsc identical to the aws-v2 baseline, build ok. Its prefilled PR page was opened for Darshan to click Create (gh is not logged in). Not merged or deployed as of 2026-10-17. The earlier branch `nitesh-pc-chip-aws-v2` (0703190) also carried the phone-URL change and is superseded; do not PR it. Darshan wants the deploy PR to hold PC changes only.
+
+Open risk on alpha (0d91723): the phone-URL change alters CallScreen input.
+- piis.country_code defaults to "+91". Old unencoded links turned '+' into a space, which was then stripped, so CallScreen got "9199…".
+- Encoded links keep the '+', so CallScreen now gets "+9199…".
+- The 10-digit search is unaffected; dial and display paths (CallScreen.tsx contact, about lines 1280, 1346 and 1942) now receive a different string.
+- Fix to exact compatibility, or revert, before this reaches aws-v2.
 
 - `src/components/retailer/PcCertificateChips.tsx`, right after WalletBalanceChip. Shares the Certificate Request page's `useGetAllPCCertificatesQuery({limit:500})` cache; match = phone last-10 OR pii_id (Darshan: that page's data is keyed by phone).
 - Darshan rules: no chip at all when the retailer has no request (no "No PC", no loading/error chip); the phone must not show in URLs.
