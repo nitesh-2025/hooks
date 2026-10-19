@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: bfc8429b-a706-46e6-b5af-f617a33b203a
-  modified: 2026-10-17T13:36:51.283Z
+  modified: 2026-10-19T06:22:40.578Z
 ---
 
 Darshan, 2026-10-17: put the rlm-portal Retailer Details **Utility** tab on **`nitesh-announcements-alpha`**. That is the branch the main checkout and localhost:8080 run. Do not use alpha or a separate branch, and never just a :8082 preview. He said "remember this".
@@ -34,3 +34,10 @@ State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not push
   - RetailerDetail gets only the Utility parts: that branch has its own ghost-measured tab-bar overflow, so the alpha tabsFit change is NOT applied.
   - Correction: PR #111's head ref is frozen at 32b8cc7 and is not on any branch tip, so PR #111 is probably closed and does NOT carry these commits. The live branches are nitesh-announcements (aws-v2 base) and nitesh-announcements-alpha (alpha base, :8080).
   - Keep both in step when adding to the announcements work.
+- 2026-10-19 UI redesign (Darshan's CROP_PRODUCT_SUGGESTION_UI_REDESIGN_PROMPT.md; he said "code on nitesh-announcements, push to GitHub ONLY when I say"):
+  - Commits: nitesh-announcements 1ade6df + 5f44663 (10-agent review round), in worktree .claude/worktrees/redesign. Same 7 files are on nitesh-announcements-alpha as 6cb8715.
+  - Status: LOCAL ONLY, NOT PUSHED; wait for his explicit go before pushing either branch.
+  - Darshan checks :8080, which runs -alpha, so he reported "not reflecting" until -alpha got the files.
+  - Lesson: when told to code on nitesh-announcements, still mirror to -alpha so :8080 shows it.
+  - Flow change: the cart finds products first ("N ready") and hands off only on "Go to Push to Cart".
+  - Left open: shared shadcn dialog.tsx Close X size and reduced motion (app-wide, not touched); Problems tab search does not auto-expand groups (as before).
