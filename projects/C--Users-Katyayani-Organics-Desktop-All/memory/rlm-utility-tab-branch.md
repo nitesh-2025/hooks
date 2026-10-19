@@ -45,4 +45,6 @@ State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not push
     - Removed the step indicator ("ye mat dikhao"): 1fc22bf / -alpha 6455f99.
     - Readable sizing pass ("too small, ganda"): 14px body, 40px controls; f5d2815 / e92a32d.
     - Crop logo SVG (CropLogo.tsx) plus real in-season crop photos on the Utility card ("logo or image"), and the review round: 120ffb8 / a7a6ea3.
-  - All local, NOT pushed. Darshan wants everything on nitesh-announcements; -alpha only mirrors it for :8080, and the utility files are identical on both.
+  - Darshan wants everything on nitesh-announcements; -alpha only mirrors it for :8080, and the utility files are identical on both.
+  - PUSHED on Darshan's go, 2026-10-19: origin/nitesh-announcements f29db77..120ffb8.
+  - -alpha commits (6cb8715, 6455f99, e92a32d, a7a6ea3) are still local, not pushed (he named only nitesh-announcements).
