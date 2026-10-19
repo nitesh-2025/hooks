@@ -8,6 +8,8 @@ metadata:
   modified: 2026-10-19T06:49:46.942Z
 ---
 
+> **SUPERSEDED 2026-10-19:** never mirror to -alpha any more — see [[rlm-code-on-nitesh-announcements]].
+
 Darshan, 2026-10-17: put the rlm-portal Retailer Details **Utility** tab on **`nitesh-announcements-alpha`**. That is the branch the main checkout and localhost:8080 run. Do not use alpha or a separate branch, and never just a :8082 preview. He said "remember this".
 - He was blunt about it: "glat branch me code kar rahe ho … 8080 par run ho raha hai usme hi change karna tha".
 
