@@ -21,3 +21,10 @@ Feature: Utility tab (after Suggestions) → a card in the Sales B2B lead-flow s
 - Moving the work onto `nitesh-announcements-alpha` folds it into that branch's PR #111 (announcements → aws-v2) when it is pushed.
 
 Related: [[deploy-branch-pr-reapply]], [[rlm-pc-certificate-chip]]
+
+State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not pushed.
+- Commits: 2152855 (feature), b71a190 (fixes from the 10-agent review), c4aa3f4 (toast text).
+- Built from branch nitesh-utility-crop-suggestion; its worktree is .claude/worktrees/utility-ann.
+- The old branch nitesh-crop-product-suggestion is superseded.
+- Verified: parity 137,241 checks with 0 fails; resolver 48/49 checks pass plus 13 new stop/abort checks (the 1 "fail" is the deliberate rule change: in-stock same-size beats an out-of-stock exact match); tsc output identical to the branch baseline; build ok; eslint clean.
+- Not verified: logged-in API calls (ko-sales /crops/active, /bulks/enrich, /product-usp, Stockship /cases/product).
