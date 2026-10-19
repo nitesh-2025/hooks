@@ -13,7 +13,8 @@ On 2026-10-19 Darshan asked: "ek branch nikalo from Katyayani-Organics:nitesh-an
 The branch `skills-matrix` was created in rlm-portal from origin/nitesh-announcements at **120ffb8** (the Utility redesign tip).
 - It lives in worktree `rlm-portal/.claude/worktrees/skills-matrix`, with a node_modules junction to the main checkout.
 - It was created with `--no-track`, so it can never push into nitesh-announcements by accident.
-- It is **local only, not pushed**. Push only when he says so; the first push needs `git push -u origin skills-matrix`.
+- **Pushed on his go, 2026-10-19** ("create remote kar do"): `origin/skills-matrix` = 120ffb8, and the branch tracks it.
+- Later pushes still need his say-so.
 
 He has not said yet what the branch is for. The name suggests a "skills matrix" feature, but don't guess: ask him or wait for his brief.
 
