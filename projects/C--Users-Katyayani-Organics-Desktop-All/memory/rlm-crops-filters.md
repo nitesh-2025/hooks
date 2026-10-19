@@ -1,6 +1,6 @@
 ---
 name: rlm-crops-filters
-description: "2026-10-19 rlm /manager/crops State/District/Pincode/Month filter row = port of B2B sales-app CropBrowser; month is browser-side (ko-sales /crops 400s on month); local commit 4d178f0 on nitesh-announcements, not pushed"
+description: "2026-10-19 rlm /manager/crops State/District/Pincode/Month filter row = port of B2B sales-app CropBrowser; month is browser-side (ko-sales /crops 400s on month); pushed 4d178f0 on nitesh-announcements, in PR #113"
 metadata:
   node_type: memory
   type: project
@@ -10,7 +10,8 @@ metadata:
 
 **What:** the rlm Crops page (`src/pages/shared/Crops.tsx`, routes /crops and /manager/crops) got a filter row: State / District / Pincode / Month + Apply.
 - The reference is the B2B **sales-app `src/pages/CropBrowser.tsx` on `origin/aws-deployed`**. Darshan's screenshot came from there. The local sales-app checkout is stale, so read it with `git show origin/aws-deployed:…`.
-- Local commit **4d178f0** on nitesh-announcements (worktree redesign). **Not pushed** — wait for his go.
+- Commit **4d178f0** on nitesh-announcements (worktree redesign). **Pushed 2026-10-19 on his go.** PR #113 (→ aws-v2) carries it: 29 commits, MERGEABLE.
+- gh CLI is logged in now (account nitesh-2025), so PR bodies can be set with `gh pr edit 113 --body-file Desktop\All\PR_113_nitesh-announcements.md`.
 
 **Month facts (checked live 2026-10-19):**
 - ko-sales GET /crops and /state-crops/current have **no month param**. Sending `month` returns 400 "property month should not exist" (global `forbidNonWhitelisted`).
