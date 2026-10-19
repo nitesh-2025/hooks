@@ -14,8 +14,11 @@ metadata:
 - There was no login; I refused to enter the credentials he gave.
 
 **Where it lives:** branch `nitesh-announcements`, worktree `.claude/worktrees/redesign`.
-- Local commits: 1fa7b95 → fb0a4f3 → ee5cb20 → 476715b (port) → 8ba0084 (review fixes + spacing).
-- **NOT pushed.**
+- Commits: 1fa7b95 → fb0a4f3 → ee5cb20 → 476715b (port) → 8ba0084 (review fixes + spacing).
+- Skill Library on real data: 9eb2a07 + 859539a.
+- **PUSHED 2026-10-19 on his "pr bana do":** origin/nitesh-announcements 120ffb8..859539a.
+- PR #113 (→ aws-v2) now carries it all: 28 commits, clean merge.
+- The PR body file is `Desktop\All\PR_113_nitesh-announcements.md`. gh is not logged in, so he pastes it.
 - Plan doc: `Desktop\All\SKILLS_MATRIX_RLM_PLAN.md`.
 
 **Code:**
