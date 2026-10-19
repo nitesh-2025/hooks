@@ -28,3 +28,4 @@ State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not push
 - The old branch nitesh-crop-product-suggestion is superseded.
 - Verified: parity 137,241 checks with 0 fails; resolver 48/49 checks pass plus 13 new stop/abort checks (the 1 "fail" is the deliberate rule change: in-stock same-size beats an out-of-stock exact match); tsc output identical to the branch baseline; build ok; eslint clean.
 - Not verified: logged-in API calls (ko-sales /crops/active, /bulks/enrich, /product-usp, Stockship /cases/product).
+- PUSHED 2026-10-19: origin/nitesh-announcements-alpha de505b7..d8a4e64 (adds d8a4e64 phone-width labels fix). It is now part of PR #111 → aws-v2; not deployed.
