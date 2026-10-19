@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: bfc8429b-a706-46e6-b5af-f617a33b203a
-  modified: 2026-10-19T06:22:40.578Z
+  modified: 2026-10-19T06:49:46.942Z
 ---
 
 Darshan, 2026-10-17: put the rlm-portal Retailer Details **Utility** tab on **`nitesh-announcements-alpha`**. That is the branch the main checkout and localhost:8080 run. Do not use alpha or a separate branch, and never just a :8082 preview. He said "remember this".
@@ -41,3 +41,8 @@ State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not push
   - Lesson: when told to code on nitesh-announcements, still mirror to -alpha so :8080 shows it.
   - Flow change: the cart finds products first ("N ready") and hands off only on "Go to Push to Cart".
   - Left open: shared shadcn dialog.tsx Close X size and reduced motion (app-wide, not touched); Problems tab search does not auto-expand groups (as before).
+  - Later the same day, at Darshan's asks:
+    - Removed the step indicator ("ye mat dikhao"): 1fc22bf / -alpha 6455f99.
+    - Readable sizing pass ("too small, ganda"): 14px body, 40px controls; f5d2815 / e92a32d.
+    - Crop logo SVG (CropLogo.tsx) plus real in-season crop photos on the Utility card ("logo or image"), and the review round: 120ffb8 / a7a6ea3.
+  - All local, NOT pushed. Darshan wants everything on nitesh-announcements; -alpha only mirrors it for :8080, and the utility files are identical on both.
