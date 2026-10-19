@@ -29,3 +29,8 @@ State 2026-10-19: on nitesh-announcements-alpha (main checkout, :8080), not push
 - Verified: parity 137,241 checks with 0 fails; resolver 48/49 checks pass plus 13 new stop/abort checks (the 1 "fail" is the deliberate rule change: in-stock same-size beats an out-of-stock exact match); tsc output identical to the branch baseline; build ok; eslint clean.
 - Not verified: logged-in API calls (ko-sales /crops/active, /bulks/enrich, /product-usp, Stockship /cases/product).
 - PUSHED 2026-10-19: origin/nitesh-announcements-alpha de505b7..d8a4e64 (adds d8a4e64 phone-width labels fix). It is now part of PR #111 → aws-v2; not deployed.
+- 2026-10-19, also on the aws-v2-based branch (Darshan: "nitesh-announcements is the latest"): pushed origin/nitesh-announcements c21c02e..f29db77.
+  - The 11 utility, PushToCartTab and cropsSlice files are identical to the alpha side.
+  - RetailerDetail gets only the Utility parts: that branch has its own ghost-measured tab-bar overflow, so the alpha tabsFit change is NOT applied.
+  - Correction: PR #111's head ref is frozen at 32b8cc7 and is not on any branch tip, so PR #111 is probably closed and does NOT carry these commits. The live branches are nitesh-announcements (aws-v2 base) and nitesh-announcements-alpha (alpha base, :8080).
+  - Keep both in step when adding to the announcements work.
