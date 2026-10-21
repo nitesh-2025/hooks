@@ -52,3 +52,13 @@ Related: [[rlm-code-on-nitesh-announcements]], [[rlm-retailer-status-vip]].
   - Every portal table looks like the Retailers one: same header, cells, borders, hover and pinned styles.
   - Orders order: Order ID (no group) → People (Customer, Agent) → Order (Date & Time, Source, Status) → Billing → Actions.
   - A column with no group must show as one tall cell. shadcn `TableHeader`'s `[&_tr]:border-b` cut it in two; the group row's `<tr>` now has `!border-b-0`.
+- Done on the branch, not committed as of 2026-10-21 evening:
+  - All 7 tables (Team/My Retailers, Events, Orders; Event Tracker `team-tracker/EventsTable.tsx`) follow one spec, `scratchpad UNIFORM_TABLE_SPEC.md`:
+    - The table has the class `.grouped-table` and its inline CSS is scoped to it. Global `table …` rules drew lines inside date-picker calendars.
+    - `stickyHeaderCss` draws the header lines as box-shadows: collapsed borders leave a see-through gap in a sticky header.
+    - Header background is `bg-card`, header `z-30`.
+    - Scroll box `max-h-[max(18rem,calc(100dvh-280px))]`.
+    - One pagination footer inside the card, with numbered pages.
+  - Settings has a Tabs navigator (Retailers / Events / Event Tracker / Orders), a colour selector under "One for all", and colours for ungrouped and fixed columns.
+  - A sorted ungrouped column highlights its whole tall cell; a sorted grouped column highlights only its heading.
+  - The Team Events Tracker 422 with `?unique=1` comes from the beta server, not the UI.
