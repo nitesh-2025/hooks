@@ -44,3 +44,11 @@ Related: [[rlm-code-on-nitesh-announcements]], [[rlm-retailer-status-vip]].
   - Column headings use a lighter shade of their group's colour.
   - The sorted column takes exactly its group heading's colour and shade (not darker), not the orange sort tint.
   - Light dividers must stay visible on a tinted cell. They are drawn as an inset box-shadow layer, because the tint hides the collapsed border.
+
+**Extended to Events and Orders (2026-10-21, in progress after commit 7d66f6c):**
+- Theme now keeps a block order per table (`blockOrder.retailers / events / orders`) in `HEADER_TABLES`. Events keeps Actions last; Orders has no S.N.
+- Columns with no group can have their own colour (`columns[id]`). S.N and Actions are listed as fixed rows in Settings.
+- Darshan's rules:
+  - Every portal table looks like the Retailers one: same header, cells, borders, hover and pinned styles.
+  - Orders order: Order ID (no group) → People (Customer, Agent) → Order (Date & Time, Source, Status) → Billing → Actions.
+  - A column with no group must show as one tall cell. shadcn `TableHeader`'s `[&_tr]:border-b` cut it in two; the group row's `<tr>` now has `!border-b-0`.
