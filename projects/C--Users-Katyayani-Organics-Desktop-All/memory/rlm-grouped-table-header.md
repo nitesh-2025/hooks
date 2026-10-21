@@ -1,14 +1,14 @@
 ---
 name: rlm-grouped-table-header
-description: "2026-10-21 two-row grouped header on Team + My Retailers, branch multiple-label-table-design (redesign worktree, uncommitted); Darshan's design choices and the pin rewrite"
+description: "2026-10-21 two-row grouped header on Team + My Retailers, branch multiple-label-table-design pushed as abbf4c4 (redesign worktree, no PR); Darshan's design choices and the pin rewrite"
 metadata:
   node_type: memory
   type: project
   originSessionId: 508f4ada-cf8c-4897-8d9f-5447ac679d9c
-  modified: 2026-10-21T12:22:36.212Z
+  modified: 2026-10-21T12:29:24.447Z
 ---
 
-Branch `multiple-label-table-design` was cut from `nitesh-announcements` 0061b8c in the `redesign` worktree, so :8081 serves it. Nothing is committed or pushed yet.
+Branch `multiple-label-table-design` was cut from `nitesh-announcements` 0061b8c in the `redesign` worktree, so :8081 serves it. Pushed 2026-10-21 as one commit abbf4c4, tracking origin; no PR opened, not deployed.
 
 **What was built:**
 - New `GroupedHeaderRow` with `groupedHeader.ts`, plus `columnPins.ts`. The pin rewrite orders cells by `data-col`; the old `data-orig-idx` logic misaligned body rows after a page change.
