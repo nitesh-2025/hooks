@@ -42,5 +42,5 @@ Related: [[rlm-code-on-nitesh-announcements]], [[rlm-retailer-status-vip]].
 - Darshan's rules for this:
   - Fill the cell, never an underline or border.
   - Column headings use a lighter shade of their group's colour.
-  - The sorted column takes its group's colour a step darker, not the orange sort tint.
+  - The sorted column takes exactly its group heading's colour and shade (not darker), not the orange sort tint.
   - Light dividers must stay visible on a tinted cell. They are drawn as an inset box-shadow layer, because the tint hides the collapsed border.
