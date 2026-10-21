@@ -1,6 +1,6 @@
 ---
 name: rlm-retailer-status-vip
-description: 2026-10-21 retailer Status/VIP/Stage on rlm Team+My Retailers — portal derives status with nest bucket rules; nest order_info/VIP count only Partner-app (MKTP-12) orders so RO/AR/LR rows had 0 orders; portal commit 0061b8c (local)
+description: 2026-10-21 retailer Status/VIP/Stage on rlm Team+My Retailers — portal derives status with nest bucket rules; nest order_info/VIP count only Partner-app (MKTP-12) orders so RO/AR/LR rows had 0 orders; portal 0061b8c pushed, in PR #113
 metadata:
   node_type: memory
   type: project
@@ -23,7 +23,7 @@ metadata:
   - 8,085 retailers have a blank `current_tier`. The portal falls back to nest's tier table on the 90-day amount (`src/lib/vipTier.ts`).
   - 821 retailers have a stored tier higher than their current 90-day spend (stale).
 
-**Portal (nitesh-announcements, commit 0061b8c, local, not pushed):**
+**Portal (nitesh-announcements, commit 0061b8c, PUSHED 2026-10-21 with 44fa2ea/57d4e9c/6cd92a0; PR #113 MERGEABLE, 33 commits):**
 - Status comes from the pipeline when the order count is 0 but the retailer is in RO / AR / LR (RO → Transacting, AR → At Risk, LR → Lost). Those badges are dashed, with a hover note.
 - One shared `RetailerStatusBadge`.
 - The Stage column shows on every view, with the DB workflow labels.
