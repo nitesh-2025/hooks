@@ -6,7 +6,7 @@ metadata:
   modified: 2026-10-23T11:07:38.012Z
 ---
 
-2026-10-23: `POST /api/v2/s3/signed-urls` in rlm-backend-nest (`src/modules/s3/`, deps `@aws-sdk/client-s3` + `s3-request-presigner`). Pushed as branch `nitesh-s3-signed-urls` (re-applied on origin/aws-deployed, commit 28e1664) → **PR #156 into aws-deployed**, not merged/deployed. The same changes are ALSO still uncommitted in the main nest checkout on `alpha` (the running :4002 watch server uses them).
+2026-10-23: `POST /api/v2/s3/signed-urls` in rlm-backend-nest (`src/modules/s3/`, deps `@aws-sdk/client-s3` + `s3-request-presigner`). Pushed as branch `nitesh-s3-signed-urls` (re-applied on origin/aws-deployed, 28e1664) → **PR #156 MERGED into aws-deployed 2026-10-23 11:09Z (d1ab8c9)**; its "Deploy to Production" FAILED on the pre-existing retailer-alerts.service.ts:283 tsc error → fix PR #158 (branch nitesh-fix-retailer-alerts-build, 7af854a). See [[run-ci-build-before-pr]]. The same changes are ALSO still uncommitted in the main nest checkout on `alpha` (the running :4002 watch server uses them).
 
 Contract: flat `{ name: key }` (≤50) → `{ urls: {name: url|null}, expires_in, skipped? }`. Bare key → `retailers/<key>`; key already under prefix kept; other folder / URL / `..` / >1024 bytes → null + `skipped` reason (no 422); 422 only for malformed body. Key fact: `documents.*.key` is the bare file name, object lives at `retailers/<key>`.
 
