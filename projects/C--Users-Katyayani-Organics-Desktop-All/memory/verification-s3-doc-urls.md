@@ -16,3 +16,5 @@ metadata:
 
 **Why:** Darshan: stored S3 doc links expired; call nest with the key only for AWS-footprint URLs; existing flow must not break.
 **How to apply:** lead K0-1354163 has is_kyc=true → docs read-only even in Edit (Profiled.tsx:3714) — not a bug; test edits on K0-1577798/PII-533 or K0-363300/PII-2143. Needs nest [[nest-s3-signed-urls]] deployed first. No logged-in browser test done yet.
+
+2026-10-23 later: rlm PR #119 (head cut from aws-deployed → base aws-v2) conflicted (dragged #88 OrderDetail + aws-deployed versions of RetailerDetail/EventValueCard). Replaced by **PR #120** (branch nitesh-s3-doc-urls-aws-v2 from aws-v2 12f32d6: 85e2c44 + eddc3fd), 7 files, MERGEABLE. eddc3fd/verification 8a9f360: a bucket-root key (no "/") is never re-signed (nest would prefix retailers/ → wrong object). Nest #156+#158 deployed; prod route answers 401 without token.
