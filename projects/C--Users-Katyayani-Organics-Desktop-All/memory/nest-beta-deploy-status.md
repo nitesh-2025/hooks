@@ -10,7 +10,7 @@ metadata:
 
 Darshan (2026-10-24): pushes to rlm-backend-nest `beta` deploy on Render but the pusher cannot see whether it went live.
 
-Built (PR #164, branch nitesh-beta-deploy-status → beta, mergeable/clean, NOT merged — I never push beta myself, see [[nest-render-beta-deploy]]):
+Built (PR #164, branch nitesh-beta-deploy-status @460ae46 → beta, NOT merged — auto-mode blocked my `gh pr merge` [Merge Without Review]; Darshan must merge; see [[nest-render-beta-deploy]]). Also validates PRs into beta (stage 1 only; run 40097328445 build ✅ 49s):
 - `GET /api/v2/health` adds `commit`/`branch` from RENDER_GIT_COMMIT/RENDER_GIT_BRANCH.
 - `.github/workflows/beta-deploy-status.yml`: on push to beta → 1 Build check (npm ci + nest build), 2 Render deploy (polls https://rlm-backend-nest-3.onrender.com/api/v2/health until it serves github.sha; 30 min), 3 Result (summary + commit status "Beta deploy (Render)"). No secret needed (user has only WRITE on the org repo, cannot add RENDER_API_KEY).
 - Render service: rlm-backend-nest-3 srv-d9acfpgk1i2s73fe5jsg, branch beta, auto-deploy yes. (rlm-backend-nest-beta is suspended.)
